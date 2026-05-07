@@ -291,7 +291,7 @@ const PRELOADED = [
   {id:"pre_287",word:"pipeline",meaning:"パイプライン、案件",category:"ビジネス",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["What's in our sales pipeline?","We have a strong pipeline this quarter."],image:"",srs:{},history:[],createdAt:1777904726629},
   {id:"pre_288",word:"north star",meaning:"最終目標、指針",category:"ビジネス",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["What's our north star metric?","Keep the north star in mind."],image:"",srs:{},history:[],createdAt:1777904786629},
   {id:"pre_289",word:"game plan",meaning:"計画、戦略",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["What's the game plan for tomorrow?","Let's review the game plan."],image:"",srs:{},history:[],createdAt:1777904846629},
-  {id:"pre_290",word:"roadmap",meaning:"ロードマップ",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Share the product roadmap.","The roadmap outlines our priorities."],image:"",srs:{},history:[],createdAt:1777904906629},
+  {id:"pre_290",word:"roadmap",meaning:"計画の工程表、進行計画",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Share the product roadmap.","The roadmap outlines our priorities."],image:"",srs:{},history:[],createdAt:1777904906629},
   {id:"pre_291",word:"milestone",meaning:"マイルストーン、節目",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["We hit a major milestone.","What's the next milestone?"],image:"",srs:{},history:[],createdAt:1777904966629},
   {id:"pre_292",word:"sign off on",meaning:"最終承認する",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Can you sign off on this budget?","We need the CEO to sign off."],image:"",srs:{},history:[],createdAt:1777905026629},
   {id:"pre_293",word:"elevator pitch",meaning:"短い売り込み、要約プレゼン",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Practice your elevator pitch.","Give me your elevator pitch in 60 seconds."],image:"",srs:{},history:[],createdAt:1777905086629},
@@ -879,20 +879,29 @@ function StudyView({ words, due, onComplete, onBack }) {
 
   const generateExplanation=async(w)=>{
     setLoadingExp(true);
+    const exList=w.examples?.filter(e=>e)||[];
+    const exText=exList.map((e,i)=>`${i+1}. ${e}`).join('\n');
     try{
       const res=await fetch('/api/claude',{
         method:'POST',headers:{'Content-Type':'application/json'},
         body:JSON.stringify({
-          model:'claude-haiku-4-5-20251001',
-          max_tokens:600,
-          messages:[{role:'user',content:`英語の「${w.word}」について、日本語で以下をJSON形式のみで返してください（コードブロック・説明不要）:\n{"etymology":"語源や由来（なぜこの単語/表現が生まれたか、簡潔に2〜3文）","image":"頭の中でイメージしやすい記憶術や連想法（具体的な絵や場面が浮かぶような解説）","usage":"よく使われる場面やニュアンスの補足（1〜2文）"}`}]
+          model:'claude-sonnet-4-20250514',
+          max_tokens:900,
+          messages:[{role:'user',content:`英語の「${w.word}」について、日本語で以下をJSON形式のみで返してください（コードブロック・説明不要）:\n{"etymology":"語源や由来（なぜこの単語/表現が生まれたか、2〜3文）","image":"頭の中でイメージしやすい記憶術や連想法（具体的な絵や場面が浮かぶ解説）","usage":"よく使われる場面やニュアンスの補足（1〜2文）","examples_ja":${JSON.stringify(exList.map(()=>'（日本語訳）'))}}
+
+以下の例文を自然な日本語に翻訳してexamples_jaに入れてください：
+${exText}`}]
         })
       });
       const data=await res.json();
-      const text=data.content?.find(b=>b.type==='text')?.text||'{}';
-      const clean=text.replace(/```json|```/g,'').trim();
-      setExplanation(JSON.parse(clean));
-    }catch(e){setExplanation({etymology:'',image:'',usage:''});}
+      const text=data.content?.find(b=>b.type==='text')?.text||'';
+      const match=text.match(/\{[\s\S]*\}/);
+      if(!match)throw new Error('JSON not found in: '+text.slice(0,100));
+      setExplanation(JSON.parse(match[0]));
+    }catch(e){
+      console.error('explanation error:',e);
+      setExplanation({etymology:'解説の取得に失敗しました。',image:'',usage:'',examples_ja:[]});
+    }
     setLoadingExp(false);
   };
 
@@ -1024,7 +1033,12 @@ function StudyView({ words, due, onComplete, onBack }) {
             {w.examples?.filter(e=>e).length>0&&(
               <div style={{ marginTop:'6px' }}>
                 <div style={{ color:C.muted,fontSize:'11px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.05em',marginBottom:'6px' }}>例文</div>
-                {w.examples.filter(e=>e).map((ex,i)=><div key={i} style={{ background:'#08122088',borderLeft:`3px solid ${C.blue}`,padding:'8px 12px',borderRadius:'0 8px 8px 0',color:C.text,fontSize:'13px',lineHeight:'1.6',marginBottom:'4px',fontStyle:'italic' }}>{ex}</div>)}
+                {w.examples.filter(e=>e).map((ex,i)=>(
+                  <div key={i} style={{ background:'#08122088',borderLeft:`3px solid ${C.blue}`,padding:'8px 12px',borderRadius:'0 8px 8px 0',marginBottom:'6px' }}>
+                    <div style={{ color:C.text,fontSize:'13px',lineHeight:'1.6',fontStyle:'italic' }}>{ex}</div>
+                    {explanation?.examples_ja?.[i]&&<div style={{ color:C.cyan,fontSize:'12px',marginTop:'3px' }}>→ {explanation.examples_ja[i]}</div>}
+                  </div>
+                ))}
               </div>
             )}
           </div>
