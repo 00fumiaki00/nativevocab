@@ -379,7 +379,77 @@ const PRELOADED = [
   {id:"pre_375",word:"jet-setter",meaning:"頻繁に旅行する人",category:"旅行",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["She's a total jet-setter.","Living like a jet-setter this month."],image:"",srs:{},history:[],createdAt:1777910006629},
   {id:"pre_376",word:"no-frills",meaning:"飾り気のない、最低限の",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["It's a no-frills hotel but comfortable.","I prefer no-frills travel."],image:"",srs:{},history:[],createdAt:1777910066629},
   {id:"pre_377",word:"passport control",meaning:"入国審査",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["Passport control took forever.","Have your documents ready at passport control."],image:"",srs:{},history:[],createdAt:1777910126629},
-  {id:"pre_378",word:"time zone",meaning:"タイムゾーン",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["What time zone are you in?","I keep forgetting the time zone difference."],image:"",srs:{},history:[],createdAt:1777910186629}
+  {id:"pre_378",word:"time zone",meaning:"タイムゾーン",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["What time zone are you in?","I keep forgetting the time zone difference."],image:"",srs:{},history:[],createdAt:1777910186629},
+  // ===== 単語単体 (日常会話) =====
+  {id:"pre_379",word:"apologize",meaning:"謝る、お詫びする",category:"日常会話",level:2,phonetic:"/əˈpɒlədʒaɪz/",audioUS:"",audioUK:"",examples:["I want to apologize for being late.","He apologized sincerely to his friend."],image:"",srs:{},history:[],createdAt:1777910246629},
+  {id:"pre_380",word:"grateful",meaning:"感謝している",category:"日常会話",level:2,phonetic:"/ˈɡreɪtfəl/",audioUS:"",audioUK:"",examples:["I'm so grateful for your help.","She felt grateful for the opportunity."],image:"",srs:{},history:[],createdAt:1777910306629},
+  {id:"pre_381",word:"nervous",meaning:"緊張した、不安な",category:"日常会話",level:1,phonetic:"/ˈnɜːrvəs/",audioUS:"",audioUK:"",examples:["I'm really nervous about the interview.","He gets nervous before big speeches."],image:"",srs:{},history:[],createdAt:1777910366629},
+  {id:"pre_382",word:"exhausted",meaning:"ぐったり疲れた",category:"日常会話",level:2,phonetic:"/ɪɡˈzɔːstɪd/",audioUS:"",audioUK:"",examples:["I'm completely exhausted after that meeting.","She was exhausted from the long trip."],image:"",srs:{},history:[],createdAt:1777910426629},
+  {id:"pre_383",word:"confused",meaning:"困惑した、混乱した",category:"日常会話",level:2,phonetic:"/kənˈfjuːzd/",audioUS:"",audioUK:"",examples:["I'm a little confused about the plan.","His explanation left everyone confused."],image:"",srs:{},history:[],createdAt:1777910486629},
+  {id:"pre_384",word:"relieved",meaning:"安堵した、ほっとした",category:"日常会話",level:2,phonetic:"/rɪˈliːvd/",audioUS:"",audioUK:"",examples:["I'm so relieved it all worked out.","She was relieved to hear the good news."],image:"",srs:{},history:[],createdAt:1777910546629},
+  {id:"pre_385",word:"overwhelmed",meaning:"圧倒された、手に負えない気持ち",category:"日常会話",level:3,phonetic:"/ˌoʊvərˈwelmd/",audioUS:"",audioUK:"",examples:["I feel overwhelmed with all this work.","She was overwhelmed with gratitude."],image:"",srs:{},history:[],createdAt:1777910606629},
+  {id:"pre_386",word:"awkward",meaning:"気まずい、ぎこちない",category:"日常会話",level:2,phonetic:"/ˈɔːkwərd/",audioUS:"",audioUK:"",examples:["That was an awkward silence.","The situation felt really awkward."],image:"",srs:{},history:[],createdAt:1777910666629},
+  {id:"pre_387",word:"reliable",meaning:"信頼できる、頼りになる",category:"日常会話",level:2,phonetic:"/rɪˈlaɪəbl/",audioUS:"",audioUK:"",examples:["She's the most reliable person on the team.","You need a reliable car for that trip."],image:"",srs:{},history:[],createdAt:1777910726629},
+  {id:"pre_388",word:"hilarious",meaning:"爆笑もの、とても面白い",category:"日常会話",level:2,phonetic:"/hɪˈleriəs/",audioUS:"",audioUK:"",examples:["That movie was absolutely hilarious.","He's hilarious when he's tired."],image:"",srs:{},history:[],createdAt:1777910786629},
+  {id:"pre_389",word:"jealous",meaning:"嫉妬した、うらやましい",category:"日常会話",level:1,phonetic:"/ˈdʒeləs/",audioUS:"",audioUK:"",examples:["I'm so jealous of your trip to Japan.","He got jealous when she talked to him."],image:"",srs:{},history:[],createdAt:1777910846629},
+  {id:"pre_390",word:"stubborn",meaning:"頑固な、意地っ張り",category:"日常会話",level:2,phonetic:"/ˈstʌbərn/",audioUS:"",audioUK:"",examples:["He's too stubborn to admit he's wrong.","Don't be so stubborn about it."],image:"",srs:{},history:[],createdAt:1777910906629},
+  {id:"pre_391",word:"genuine",meaning:"本物の、心からの",category:"日常会話",level:3,phonetic:"/ˈdʒenjuɪn/",audioUS:"",audioUK:"",examples:["Her smile seemed completely genuine.","He gave a genuine apology."],image:"",srs:{},history:[],createdAt:1777910966629},
+  {id:"pre_392",word:"craving",meaning:"強く欲しい、食べたくて仕方ない",category:"日常会話",level:2,phonetic:"/ˈkreɪvɪŋ/",audioUS:"",audioUK:"",examples:["I'm craving ramen right now.","She had a sudden craving for ice cream."],image:"",srs:{},history:[],createdAt:1777911026629},
+  {id:"pre_393",word:"clumsy",meaning:"不器用な、ドジな",category:"日常会話",level:2,phonetic:"/ˈklʌmzi/",audioUS:"",audioUK:"",examples:["I'm so clumsy — I spilled my coffee again.","He's always been a bit clumsy."],image:"",srs:{},history:[],createdAt:1777911086629},
+  // ===== 単語単体 (スラング) =====
+  {id:"pre_394",word:"dope",meaning:"最高、かっこいい",category:"スラング",level:1,phonetic:"/doʊp/",audioUS:"",audioUK:"",examples:["That new song is so dope.","His sneakers are dope."],image:"",srs:{},history:[],createdAt:1777911146629},
+  {id:"pre_395",word:"sketchy",meaning:"怪しい、信用できない",category:"スラング",level:2,phonetic:"/ˈskɛtʃi/",audioUS:"",audioUK:"",examples:["This neighborhood seems a bit sketchy.","That deal sounds really sketchy."],image:"",srs:{},history:[],createdAt:1777911206629},
+  {id:"pre_396",word:"savage",meaning:"容赦ない、強烈、すごい",category:"スラング",level:2,phonetic:"/ˈsævɪdʒ/",audioUS:"",audioUK:"",examples:["That comeback was savage.","She was savage in the debate."],image:"",srs:{},history:[],createdAt:1777911266629},
+  {id:"pre_397",word:"petty",meaning:"器が小さい、ちっちゃいことにこだわる",category:"スラング",level:2,phonetic:"/ˈpeti/",audioUS:"",audioUK:"",examples:["Stop being so petty about that.","She's petty enough to unfollow him."],image:"",srs:{},history:[],createdAt:1777911326629},
+  {id:"pre_398",word:"obsessed",meaning:"取り憑かれた、どハマりしてる",category:"スラング",level:2,phonetic:"/əbˈsest/",audioUS:"",audioUK:"",examples:["I'm obsessed with this new show.","She's completely obsessed with that band."],image:"",srs:{},history:[],createdAt:1777911386629},
+  {id:"pre_399",word:"unbothered",meaning:"動じない、全然気にしない",category:"スラング",level:2,phonetic:"/ʌnˈbɒðərd/",audioUS:"",audioUK:"",examples:["She's unbothered by the criticism.","He walked away completely unbothered."],image:"",srs:{},history:[],createdAt:1777911446629},
+  {id:"pre_400",word:"triggered",meaning:"激怒した、傷ついた",category:"スラング",level:2,phonetic:"/ˈtrɪɡərd/",audioUS:"",audioUK:"",examples:["That comment really triggered me.","He gets triggered by small things."],image:"",srs:{},history:[],createdAt:1777911506629},
+  {id:"pre_401",word:"finesse",meaning:"うまくやってのける、巧みに立ち回る",category:"スラング",level:3,phonetic:"/fɪˈnes/",audioUS:"",audioUK:"",examples:["He finessed his way into the VIP section.","She finessed the whole situation."],image:"",srs:{},history:[],createdAt:1777911566629},
+  {id:"pre_402",word:"canceled",meaning:"社会的に制裁された、追放された",category:"スラング",level:3,phonetic:"/ˈkænsəld/",audioUS:"",audioUK:"",examples:["That influencer got canceled last week.","Being canceled on social media is serious."],image:"",srs:{},history:[],createdAt:1777911626629},
+  {id:"pre_403",word:"feral",meaning:"ぶっ飛んでる、完全に限界",category:"スラング",level:3,phonetic:"/ˈfɪərəl/",audioUS:"",audioUK:"",examples:["I went feral after staying up all night.","She's acting feral at this party."],image:"",srs:{},history:[],createdAt:1777911686629},
+  // ===== 単語単体 (口語表現) =====
+  {id:"pre_404",word:"absolutely",meaning:"全くその通り、もちろん",category:"口語表現",level:1,phonetic:"/ˈæbsəluːtli/",audioUS:"",audioUK:"",examples:["Absolutely, I'll be there.","That's absolutely right."],image:"",srs:{},history:[],createdAt:1777911746629},
+  {id:"pre_405",word:"exactly",meaning:"まさにその通り",category:"口語表現",level:1,phonetic:"/ɪɡˈzæktli/",audioUS:"",audioUK:"",examples:["Exactly! That's what I was thinking.","That's exactly what I needed."],image:"",srs:{},history:[],createdAt:1777911806629},
+  {id:"pre_406",word:"apparently",meaning:"どうやら〜らしい",category:"口語表現",level:2,phonetic:"/əˈpærəntli/",audioUS:"",audioUK:"",examples:["Apparently, she quit her job.","Apparently they're dating now."],image:"",srs:{},history:[],createdAt:1777911866629},
+  {id:"pre_407",word:"definitely",meaning:"絶対に、確実に",category:"口語表現",level:1,phonetic:"/ˈdefɪnɪtli/",audioUS:"",audioUK:"",examples:["Definitely — count me in.","I'll definitely be there."],image:"",srs:{},history:[],createdAt:1777911926629},
+  {id:"pre_408",word:"obviously",meaning:"明らかに、当然",category:"口語表現",level:1,phonetic:"/ˈɒbviəsli/",audioUS:"",audioUK:"",examples:["Obviously, that's not okay.","She was obviously upset."],image:"",srs:{},history:[],createdAt:1777911986629},
+  {id:"pre_409",word:"technically",meaning:"厳密に言えば、技術的には",category:"口語表現",level:2,phonetic:"/ˈteknɪkəli/",audioUS:"",audioUK:"",examples:["Technically, you're right.","Technically it's not against the rules."],image:"",srs:{},history:[],createdAt:1777912046629},
+  {id:"pre_410",word:"supposedly",meaning:"〜とされているが、建前では",category:"口語表現",level:3,phonetic:"/səˈpoʊzɪdli/",audioUS:"",audioUK:"",examples:["Supposedly, it's the best restaurant here.","He's supposedly an expert."],image:"",srs:{},history:[],createdAt:1777912106629},
+  {id:"pre_411",word:"randomly",meaning:"突然、なんとなく、唐突に",category:"口語表現",level:2,phonetic:"/ˈrændəmli/",audioUS:"",audioUK:"",examples:["She randomly texted me last night.","He randomly showed up at the party."],image:"",srs:{},history:[],createdAt:1777912166629},
+  {id:"pre_412",word:"presumably",meaning:"おそらく、たぶん",category:"口語表現",level:3,phonetic:"/prɪˈzjuːməbli/",audioUS:"",audioUK:"",examples:["Presumably, she already knows.","Presumably, they'll be late again."],image:"",srs:{},history:[],createdAt:1777912226629},
+  {id:"pre_413",word:"simultaneously",meaning:"同時に",category:"口語表現",level:3,phonetic:"/ˌsɪməlˈteɪniəsli/",audioUS:"",audioUK:"",examples:["We both said it simultaneously.","The app runs on multiple devices simultaneously."],image:"",srs:{},history:[],createdAt:1777912286629},
+  // ===== 単語単体 (ビジネス) =====
+  {id:"pre_414",word:"collaborate",meaning:"協力する、共同作業する",category:"ビジネス",level:2,phonetic:"/kəˈlæbəreɪt/",audioUS:"",audioUK:"",examples:["We need to collaborate on this project.","They collaborated with a design firm."],image:"",srs:{},history:[],createdAt:1777912346629},
+  {id:"pre_415",word:"delegate",meaning:"権限を委任する、任せる",category:"ビジネス",level:3,phonetic:"/ˈdelɪɡeɪt/",audioUS:"",audioUK:"",examples:["You need to learn to delegate.","She delegated tasks to the team."],image:"",srs:{},history:[],createdAt:1777912406629},
+  {id:"pre_416",word:"implement",meaning:"実施する、導入する",category:"ビジネス",level:2,phonetic:"/ˈɪmplɪment/",audioUS:"",audioUK:"",examples:["We need to implement this strategy ASAP.","The changes were implemented last quarter."],image:"",srs:{},history:[],createdAt:1777912466629},
+  {id:"pre_417",word:"negotiate",meaning:"交渉する",category:"ビジネス",level:2,phonetic:"/nɪˈɡoʊʃieɪt/",audioUS:"",audioUK:"",examples:["We'll need to negotiate the contract.","She negotiated a higher salary."],image:"",srs:{},history:[],createdAt:1777912526629},
+  {id:"pre_418",word:"prioritize",meaning:"優先順位をつける",category:"ビジネス",level:2,phonetic:"/praɪˈɒrɪtaɪz/",audioUS:"",audioUK:"",examples:["We need to prioritize this task.","Prioritize your health over everything."],image:"",srs:{},history:[],createdAt:1777912586629},
+  {id:"pre_419",word:"streamline",meaning:"効率化する、合理化する",category:"ビジネス",level:3,phonetic:"/ˈstriːmlaɪn/",audioUS:"",audioUK:"",examples:["We need to streamline the process.","The new software streamlines workflows."],image:"",srs:{},history:[],createdAt:1777912646629},
+  {id:"pre_420",word:"leverage",meaning:"〜を最大限に活用する",category:"ビジネス",level:3,phonetic:"/ˈlevərɪdʒ/",audioUS:"",audioUK:"",examples:["We can leverage our data here.","Leverage your strengths in the interview."],image:"",srs:{},history:[],createdAt:1777912706629},
+  {id:"pre_421",word:"initiative",meaning:"主体的な取り組み、先導",category:"ビジネス",level:3,phonetic:"/ɪˈnɪʃətɪv/",audioUS:"",audioUK:"",examples:["She took the initiative on that project.","We're launching a new initiative next quarter."],image:"",srs:{},history:[],createdAt:1777912766629},
+  {id:"pre_422",word:"accountability",meaning:"説明責任、責任感",category:"ビジネス",level:3,phonetic:"/əˌkaʊntəˈbɪlɪti/",audioUS:"",audioUK:"",examples:["There's a culture of accountability here.","Accountability is key to good leadership."],image:"",srs:{},history:[],createdAt:1777912826629},
+  {id:"pre_423",word:"proactive",meaning:"積極的な、先回りした",category:"ビジネス",level:2,phonetic:"/proʊˈæktɪv/",audioUS:"",audioUK:"",examples:["Be proactive — don't wait to be asked.","She's always proactive about solving problems."],image:"",srs:{},history:[],createdAt:1777912886629},
+  {id:"pre_424",word:"scalable",meaning:"拡張可能な、スケールできる",category:"ビジネス",level:3,phonetic:"/ˈskeɪləbl/",audioUS:"",audioUK:"",examples:["This model is not scalable.","We need a scalable solution."],image:"",srs:{},history:[],createdAt:1777912946629},
+  {id:"pre_425",word:"benchmark",meaning:"基準、目標値、比較指標",category:"ビジネス",level:3,phonetic:"/ˈbentʃmɑːrk/",audioUS:"",audioUK:"",examples:["This sets a new benchmark for quality.","We're benchmarking against competitors."],image:"",srs:{},history:[],createdAt:1777913006629},
+  {id:"pre_426",word:"deadline",meaning:"締め切り、期限",category:"ビジネス",level:1,phonetic:"/ˈdedlaɪn/",audioUS:"",audioUK:"",examples:["The deadline is Friday at 5 PM.","Don't miss the deadline."],image:"",srs:{},history:[],createdAt:1777913066629},
+  {id:"pre_427",word:"incentive",meaning:"インセンティブ、やる気を引き出すもの",category:"ビジネス",level:3,phonetic:"/ɪnˈsentɪv/",audioUS:"",audioUK:"",examples:["What's the incentive for doing this?","They offered a bonus as an incentive."],image:"",srs:{},history:[],createdAt:1777913126629},
+  {id:"pre_428",word:"sustainable",meaning:"持続可能な、長続きする",category:"ビジネス",level:2,phonetic:"/səˈsteɪnəbl/",audioUS:"",audioUK:"",examples:["We need a sustainable business model.","Is this growth sustainable?"],image:"",srs:{},history:[],createdAt:1777913186629},
+  // ===== 単語単体 (旅行) =====
+  {id:"pre_429",word:"itinerary",meaning:"旅程、行程表",category:"旅行",level:3,phonetic:"/aɪˈtɪnəreri/",audioUS:"",audioUK:"",examples:["Can you send me the itinerary?","Our itinerary includes three cities."],image:"",srs:{},history:[],createdAt:1777913246629},
+  {id:"pre_430",word:"souvenir",meaning:"お土産、記念品",category:"旅行",level:2,phonetic:"/ˌsuːvəˈnɪər/",audioUS:"",audioUK:"",examples:["I bought a souvenir for my mom.","The souvenir shop was packed."],image:"",srs:{},history:[],createdAt:1777913306629},
+  {id:"pre_431",word:"accommodation",meaning:"宿泊施設、住む場所",category:"旅行",level:2,phonetic:"/əˌkɒməˈdeɪʃən/",audioUS:"",audioUK:"",examples:["The accommodation was perfect.","Book accommodation in advance."],image:"",srs:{},history:[],createdAt:1777913366629},
+  {id:"pre_432",word:"destination",meaning:"目的地、行き先",category:"旅行",level:1,phonetic:"/ˌdestɪˈneɪʃən/",audioUS:"",audioUK:"",examples:["Paris is her dream destination.","What's your final destination?"],image:"",srs:{},history:[],createdAt:1777913426629},
+  {id:"pre_433",word:"departure",meaning:"出発、発車",category:"旅行",level:2,phonetic:"/dɪˈpɑːrtʃər/",audioUS:"",audioUK:"",examples:["Departure is at 7 AM.","Please check your departure gate."],image:"",srs:{},history:[],createdAt:1777913486629},
+  {id:"pre_434",word:"arrival",meaning:"到着",category:"旅行",level:1,phonetic:"/əˈraɪvəl/",audioUS:"",audioUK:"",examples:["What time is your arrival?","Upon arrival, check in immediately."],image:"",srs:{},history:[],createdAt:1777913546629},
+  {id:"pre_435",word:"currency",meaning:"通貨、お金",category:"旅行",level:2,phonetic:"/ˈkɜːrənsi/",audioUS:"",audioUK:"",examples:["What's the local currency here?","I need to exchange currency."],image:"",srs:{},history:[],createdAt:1777913606629},
+  {id:"pre_436",word:"reservation",meaning:"予約",category:"旅行",level:1,phonetic:"/ˌrezərˈveɪʃən/",audioUS:"",audioUK:"",examples:["I have a reservation under Smith.","Make a reservation in advance."],image:"",srs:{},history:[],createdAt:1777913666629},
+  {id:"pre_437",word:"customs",meaning:"税関、通関手続き",category:"旅行",level:2,phonetic:"/ˈkʌstəmz/",audioUS:"",audioUK:"",examples:["You have to declare items at customs.","The customs line was really long."],image:"",srs:{},history:[],createdAt:1777913726629},
+  {id:"pre_438",word:"turbulence",meaning:"乱気流",category:"旅行",level:3,phonetic:"/ˈtɜːrbjuləns/",audioUS:"",audioUK:"",examples:["The flight hit some turbulence.","Fasten your seatbelt during turbulence."],image:"",srs:{},history:[],createdAt:1777913786629},
+  {id:"pre_439",word:"layover",meaning:"乗り継ぎ待ち時間",category:"旅行",level:2,phonetic:"/ˈleɪoʊvər/",audioUS:"",audioUK:"",examples:["We have a 3-hour layover in Dubai.","I hate long layovers."],image:"",srs:{},history:[],createdAt:1777913846629},
+  {id:"pre_440",word:"complimentary",meaning:"無料の、サービスの",category:"旅行",level:3,phonetic:"/ˌkɒmplɪˈmentəri/",audioUS:"",audioUK:"",examples:["Breakfast is complimentary.","The hotel offers complimentary Wi-Fi."],image:"",srs:{},history:[],createdAt:1777913906629},
+  {id:"pre_441",word:"sightseeing",meaning:"観光",category:"旅行",level:1,phonetic:"/ˈsaɪtsiːɪŋ/",audioUS:"",audioUK:"",examples:["We spent the day sightseeing.","The sightseeing tour was amazing."],image:"",srs:{},history:[],createdAt:1777913966629},
+  {id:"pre_442",word:"affordable",meaning:"手頃な値段の、リーズナブルな",category:"旅行",level:2,phonetic:"/əˈfɔːrdəbl/",audioUS:"",audioUK:"",examples:["The hotel was surprisingly affordable.","We're looking for affordable options."],image:"",srs:{},history:[],createdAt:1777914026629},
+  {id:"pre_443",word:"backpacker",meaning:"バックパッカー、格安旅行者",category:"旅行",level:2,phonetic:"/ˈbækpækər/",audioUS:"",audioUK:"",examples:["The hostel was full of backpackers.","She traveled as a backpacker for a year."],image:"",srs:{},history:[],createdAt:1777914086629}
 ];
 // ===== STORAGE =====
 const S = {
@@ -503,6 +573,7 @@ export default function App() {
   return (
     <div style={{ background:C.bg,minHeight:'100vh',color:C.text,fontFamily:'"DM Sans",sans-serif',display:'flex',flexDirection:'column',maxWidth:'480px',margin:'0 auto' }}>
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+      <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
       <div style={{ flex:1,paddingBottom:'80px',overflowY:'auto' }}>
         {view==='home'    && <HomeView words={words} streak={streak} due={due} onStudy={()=>setView('study')} onAdd={()=>{setEditWord(null);setView('add');}} />}
         {view==='library' && <LibraryView words={words} onEdit={w=>{setEditWord(w);setView('add');}} onDelete={id=>saveWords(words.filter(w=>w.id!==id))} onFetchSlang={()=>setShowSlangModal(true)} />}
@@ -684,7 +755,11 @@ function AddWordView({ editWord, onSave, onCancel }) {
 function LibraryView({ words, onEdit, onDelete, onFetchSlang }) {
   const [search,setSearch]=useState('');
   const [filter,setFilter]=useState('すべて');
-  const filtered=words.filter(w=>(!search||w.word.toLowerCase().includes(search.toLowerCase())||w.meaning.includes(search))&&(filter==='すべて'||w.category===filter));
+  const filtered=words.filter(w=>{
+    const matchSearch=!search||w.word.toLowerCase().includes(search.toLowerCase())||w.meaning.includes(search);
+    const matchFilter=filter==='すべて'||(filter==='単語'?!w.word.includes(' '):w.category===filter);
+    return matchSearch&&matchFilter;
+  });
   return (
     <div style={{ padding:'28px 20px' }}>
       <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'20px' }}>
@@ -695,7 +770,7 @@ function LibraryView({ words, onEdit, onDelete, onFetchSlang }) {
       </div>
       <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="🔍 単語・意味で検索..." style={{ ...inp,marginBottom:'14px' }}/>
       <div style={{ display:'flex',gap:'8px',overflowX:'auto',paddingBottom:'8px',marginBottom:'16px',scrollbarWidth:'none' }}>
-        {['すべて',...CATS].map(c=><button key={c} onClick={()=>setFilter(c)} style={{ background:filter===c?gc(c):C.card,border:`1px solid ${filter===c?gc(c):C.border}`,borderRadius:'20px',padding:'8px 14px',color:filter===c?'#fff':C.muted,cursor:'pointer',fontSize:'13px',fontWeight:600,whiteSpace:'nowrap' }}>{c}</button>)}
+        {['すべて','単語',...CATS].map(c=><button key={c} onClick={()=>setFilter(c)} style={{ background:filter===c?(c==='単語'?C.blue:gc(c)):C.card,border:`1px solid ${filter===c?(c==='単語'?C.blue:gc(c)):C.border}`,borderRadius:'20px',padding:'8px 14px',color:filter===c?'#fff':C.muted,cursor:'pointer',fontSize:'13px',fontWeight:600,whiteSpace:'nowrap' }}>{c}</button>)}
       </div>
       <div style={{ color:C.muted,fontSize:'13px',marginBottom:'14px' }}>{filtered.length}語</div>
       {filtered.length===0?(
@@ -754,39 +829,119 @@ function StudyView({ words, due, onComplete, onBack }) {
   const [mode,setMode]=useState(null);
   const [queue,setQueue]=useState([]);
   const [cur,setCur]=useState(0);
-  const [revealed,setRevealed]=useState(false);
+  const [choices,setChoices]=useState([]);
+  const [selected,setSelected]=useState(null);
   const [stats,setStats]=useState({correct:0,wrong:0});
   const [uw,setUw]=useState([...words]);
   const [done,setDone]=useState(false);
+  const [currentPhonetic,setCurrentPhonetic]=useState('');
+  const [filterCat,setFilterCat]=useState('すべて');
+  const [filterLevel,setFilterLevel]=useState(0);
+  const [explanation,setExplanation]=useState(null);
+  const [loadingExp,setLoadingExp]=useState(false);
+  const [pendingWords,setPendingWords]=useState(null);
+  const [pendingStats,setPendingStats]=useState(null);
+
+  const filteredWords=words.filter(w=>{
+    const catOk=filterCat==='すべて'||(filterCat==='単語'?!w.word.includes(' '):w.category===filterCat);
+    const lvlOk=filterLevel===0||w.level===filterLevel;
+    return catOk&&lvlOk;
+  });
+  const filteredDue=due.filter(w=>{
+    const catOk=filterCat==='すべて'||(filterCat==='単語'?!w.word.includes(' '):w.category===filterCat);
+    const lvlOk=filterLevel===0||w.level===filterLevel;
+    return catOk&&lvlOk;
+  });
+
+  useEffect(()=>{
+    if(!queue.length||cur>=queue.length)return;
+    const w=queue[cur];
+    const others=words.filter(x=>x.id!==w.id&&x.meaning!==w.meaning);
+    const sameCat=[...others.filter(x=>x.category===w.category)].sort(()=>Math.random()-0.5);
+    const diffCat=[...others.filter(x=>x.category!==w.category)].sort(()=>Math.random()-0.5);
+    const pool=[...sameCat,...diffCat];
+    const wrong=pool.slice(0,3).map(x=>x.meaning);
+    setChoices([...wrong,w.meaning].sort(()=>Math.random()-0.5));
+    setSelected(null);setExplanation(null);setLoadingExp(false);
+    if(w.phonetic){setCurrentPhonetic(w.phonetic);}
+    else{setCurrentPhonetic('');lookupWord(w.word).then(d=>{if(d.phonetic)setCurrentPhonetic(d.phonetic);});}
+  },[cur,queue]); // eslint-disable-line
 
   const start=m=>{
+    const fw=filteredWords.length>=4?filteredWords:words;
+    const fd=filteredDue;
     let q;
-    if(m==='srs')q=due.length>0?[...due].sort(()=>Math.random()-0.5):[...words].sort(()=>Math.random()-0.5).slice(0,10);
-    else if(m==='random')q=[...words].sort(()=>Math.random()-0.5).slice(0,20);
-    else{q=words.filter(w=>(w.history||[]).slice(-5).filter(h=>!h.correct).length>0);if(q.length===0)q=[...words].sort(()=>Math.random()-0.5).slice(0,10);}
-    setQueue(q);setCur(0);setRevealed(false);setStats({correct:0,wrong:0});setUw([...words]);setDone(false);setMode(m);
+    if(m==='srs')q=fd.length>0?[...fd].sort(()=>Math.random()-0.5):[...fw].sort(()=>Math.random()-0.5).slice(0,10);
+    else if(m==='random')q=[...fw].sort(()=>Math.random()-0.5).slice(0,20);
+    else{q=fw.filter(w=>(w.history||[]).slice(-5).filter(h=>!h.correct).length>0);if(q.length===0)q=[...fw].sort(()=>Math.random()-0.5).slice(0,10);}
+    setQueue(q);setCur(0);setSelected(null);setStats({correct:0,wrong:0});setUw([...words]);setDone(false);setMode(m);setExplanation(null);setPendingWords(null);setPendingStats(null);
   };
 
-  const answer=q=>{
+  const generateExplanation=async(w)=>{
+    setLoadingExp(true);
+    try{
+      const res=await fetch('/api/claude',{
+        method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          model:'claude-haiku-4-5-20251001',
+          max_tokens:600,
+          messages:[{role:'user',content:`英語の「${w.word}」について、日本語で以下をJSON形式のみで返してください（コードブロック・説明不要）:\n{"etymology":"語源や由来（なぜこの単語/表現が生まれたか、簡潔に2〜3文）","image":"頭の中でイメージしやすい記憶術や連想法（具体的な絵や場面が浮かぶような解説）","usage":"よく使われる場面やニュアンスの補足（1〜2文）"}`}]
+        })
+      });
+      const data=await res.json();
+      const text=data.content?.find(b=>b.type==='text')?.text||'{}';
+      const clean=text.replace(/```json|```/g,'').trim();
+      setExplanation(JSON.parse(clean));
+    }catch(e){setExplanation({etymology:'',image:'',usage:''});}
+    setLoadingExp(false);
+  };
+
+  const handleSelect=(choice)=>{
+    if(selected!==null)return;
     const w=queue[cur];
+    const isCorrect=choice===w.meaning;
+    const q=isCorrect?2:0;
     const srs=nextSRS(w.srs,q);
     const ok=q>0;
     const hist=[...(w.history||[]),{date:Date.now(),correct:ok}].slice(-20);
-    const updated=uw.map(x=>x.id===w.id?{...x,srs,history:hist}:x);
-    setUw(updated);
-    setStats(s=>({correct:s.correct+(ok?1:0),wrong:s.wrong+(ok?0:1)}));
+    const updatedWords=uw.map(x=>x.id===w.id?{...x,srs,history:hist}:x);
+    const newStats={correct:stats.correct+(ok?1:0),wrong:stats.wrong+(ok?0:1)};
+    setSelected(choice);
+    setPendingWords(updatedWords);
+    setPendingStats(newStats);
+    generateExplanation(w);
+  };
+
+  const handleNext=()=>{
+    if(!pendingWords)return;
+    setUw(pendingWords);
+    setStats(pendingStats);
     if(cur+1>=queue.length)setDone(true);
-    else{setCur(cur+1);setRevealed(false);}
+    else{setCur(cur+1);setExplanation(null);setLoadingExp(false);}
   };
 
   if(!mode)return(
     <div style={{ padding:'28px 20px' }}>
-      <div style={{ display:'flex',alignItems:'center',gap:'12px',marginBottom:'32px' }}>
+      <div style={{ display:'flex',alignItems:'center',gap:'12px',marginBottom:'24px' }}>
         <button onClick={onBack} style={{ background:C.card,border:`1px solid ${C.border}`,borderRadius:'10px',padding:'8px 14px',color:C.muted,cursor:'pointer',fontSize:'18px' }}>←</button>
         <div style={{ fontFamily:'Inter',fontSize:'22px',fontWeight:800 }}>学習モードを選択</div>
       </div>
+      <div style={{ marginBottom:'14px' }}>
+        <div style={{ color:C.muted,fontSize:'11px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.05em',marginBottom:'8px' }}>カテゴリー</div>
+        <div style={{ display:'flex',gap:'8px',overflowX:'auto',paddingBottom:'6px',scrollbarWidth:'none' }}>
+          {['すべて','単語',...CATS].map(c=><button key={c} onClick={()=>setFilterCat(c)} style={{ background:filterCat===c?(c==='単語'?C.blue:gc(c)):C.card,border:`1px solid ${filterCat===c?(c==='単語'?C.blue:gc(c)):C.border}`,borderRadius:'20px',padding:'7px 13px',color:filterCat===c?'#fff':C.muted,cursor:'pointer',fontSize:'12px',fontWeight:600,whiteSpace:'nowrap',flexShrink:0 }}>{c}</button>)}
+        </div>
+      </div>
+      <div style={{ marginBottom:'20px' }}>
+        <div style={{ color:C.muted,fontSize:'11px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.05em',marginBottom:'8px' }}>難易度</div>
+        <div style={{ display:'flex',gap:'6px' }}>
+          <button onClick={()=>setFilterLevel(0)} style={{ background:filterLevel===0?C.blue:C.card,border:`1px solid ${filterLevel===0?C.blue:C.border}`,borderRadius:'20px',padding:'7px 12px',color:filterLevel===0?'#fff':C.muted,cursor:'pointer',fontSize:'12px',fontWeight:600,whiteSpace:'nowrap' }}>すべて</button>
+          {[1,2,3,4,5].map(l=><button key={l} onClick={()=>setFilterLevel(l)} style={{ flex:1,background:filterLevel===l?'#FFD16622':C.card,border:`1px solid ${filterLevel===l?'#FFD166':C.border}`,borderRadius:'20px',padding:'7px 4px',color:filterLevel===l?'#FFD166':C.muted,cursor:'pointer',fontSize:'12px',fontWeight:700 }}>{'★'.repeat(l)}</button>)}
+        </div>
+      </div>
+      <div style={{ color:C.muted,fontSize:'12px',marginBottom:'16px',textAlign:'center' }}>対象: <span style={{ color:C.text,fontWeight:700 }}>{filteredWords.length}</span>語</div>
       <div style={{ display:'flex',flexDirection:'column',gap:'16px' }}>
-        {[{m:'srs',emoji:'🧠',title:'SRS復習',desc:`今日の復習: ${due.length}語`,col:C.blue,badge:due.length},{m:'random',emoji:'🎲',title:'ランダム練習',desc:'全単語からランダムで20語',col:C.cyan},{m:'wrong',emoji:'💪',title:'苦手な単語',desc:'間違えた単語を集中練習',col:C.orange}].map(({m,emoji,title,desc,col,badge})=>(
+        {[{m:'srs',emoji:'🧠',title:'SRS復習',desc:`今日の復習: ${filteredDue.length}語`,col:C.blue,badge:filteredDue.length},{m:'random',emoji:'🎲',title:'ランダム練習',desc:`${Math.min(filteredWords.length,20)}語をランダムで練習`,col:C.cyan},{m:'wrong',emoji:'💪',title:'苦手な単語',desc:'間違えた単語を集中練習',col:C.orange}].map(({m,emoji,title,desc,col,badge})=>(
           <div key={m} onClick={()=>start(m)} style={{ background:C.card,border:`1px solid ${col}33`,borderRadius:'20px',padding:'22px',cursor:'pointer',display:'flex',alignItems:'center',gap:'16px' }}>
             <div style={{ fontSize:'40px' }}>{emoji}</div>
             <div style={{ flex:1 }}><div style={{ fontFamily:'Inter',fontSize:'18px',fontWeight:800 }}>{title}</div><div style={{ color:C.muted,fontSize:'14px',marginTop:'4px' }}>{desc}</div></div>
@@ -832,37 +987,87 @@ function StudyView({ words, due, onComplete, onBack }) {
           <span style={{ color:C.red,fontSize:'13px',fontWeight:700 }}>✗{stats.wrong}</span>
         </div>
       </div>
-      <div style={{ background:'linear-gradient(160deg,#0D1424,#080D18)',border:`1px solid ${C.border}`,borderRadius:'24px',padding:'36px 24px',minHeight:'280px',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',marginBottom:'20px',position:'relative',overflow:'hidden' }}>
+      <div style={{ background:'linear-gradient(160deg,#0D1424,#080D18)',border:`1px solid ${C.border}`,borderRadius:'24px',padding:'28px 24px',marginBottom:'14px',display:'flex',flexDirection:'column',alignItems:'center',position:'relative',overflow:'hidden' }}>
         <div style={{ position:'absolute',top:0,left:0,right:0,height:'3px',background:`linear-gradient(90deg,${gc(w.category)},transparent)` }}/>
-        {w.image&&<img src={w.image} alt="" style={{ width:'90px',height:'90px',borderRadius:'14px',objectFit:'cover',marginBottom:'18px' }}/>}
-        <div style={{ background:gc(w.category)+'22',color:gc(w.category),borderRadius:'20px',padding:'4px 12px',fontSize:'12px',fontWeight:700,marginBottom:'14px' }}>{w.category}</div>
-        <div style={{ fontFamily:'Inter',fontSize:'38px',fontWeight:800,textAlign:'center',marginBottom:'6px',letterSpacing:'-0.5px' }}>{w.word}</div>
-        {w.phonetic&&<div style={{ color:C.cyan,fontFamily:'monospace',fontSize:'17px',marginBottom:'14px' }}>{w.phonetic}</div>}
-        <div style={{ display:'flex',gap:'8px',marginBottom:revealed?'20px':0 }}>
-          <button onClick={()=>playAudio(w.audioUS,w.word,'en-US')} style={{ background:C.blue+'22',border:`1px solid ${C.blue}44`,borderRadius:'8px',padding:'6px 14px',color:C.blue,cursor:'pointer',fontSize:'12px',fontWeight:700 }}>🔊 US</button>
-          <button onClick={()=>playAudio(w.audioUK,w.word,'en-GB')} style={{ background:C.cyan+'18',border:`1px solid ${C.cyan}44`,borderRadius:'8px',padding:'6px 14px',color:C.cyan,cursor:'pointer',fontSize:'12px',fontWeight:700 }}>🔊 UK</button>
+        {w.image&&<img src={w.image} alt="" style={{ width:'80px',height:'80px',borderRadius:'14px',objectFit:'cover',marginBottom:'16px' }}/>}
+        <div style={{ background:gc(w.category)+'22',color:gc(w.category),borderRadius:'20px',padding:'4px 12px',fontSize:'12px',fontWeight:700,marginBottom:'12px' }}>{w.category}</div>
+        <div style={{ fontFamily:'Inter',fontSize:'36px',fontWeight:800,textAlign:'center',marginBottom:'6px',letterSpacing:'-0.5px' }}>{w.word}</div>
+        <div style={{ color:C.cyan,fontFamily:'monospace',fontSize:'16px',marginBottom:'12px',minHeight:'22px',textAlign:'center' }}>
+          {currentPhonetic?currentPhonetic:<span style={{ color:C.dim,fontSize:'13px' }}>…</span>}
         </div>
-        {revealed&&(
-          <div style={{ width:'100%',borderTop:`1px solid ${C.dim}`,paddingTop:'18px',textAlign:'center' }}>
-            <div style={{ fontFamily:'Inter',fontSize:'26px',fontWeight:700,color:C.green,marginBottom:'12px' }}>{w.meaning}</div>
-            {w.examples?.find(e=>e)&&<div style={{ background:'#08122088',borderLeft:`3px solid ${C.blue}`,padding:'10px 14px',borderRadius:'0 8px 8px 0',color:C.muted,fontSize:'14px',lineHeight:'1.6',textAlign:'left' }}>{w.examples.find(e=>e)}</div>}
-          </div>
-        )}
+        <div style={{ display:'flex',gap:'8px' }}>
+          <button onClick={()=>playAudio(w.audioUS,w.word,'en-US')} style={{ background:C.blue+'22',border:`1px solid ${C.blue}44`,borderRadius:'8px',padding:'5px 12px',color:C.blue,cursor:'pointer',fontSize:'12px',fontWeight:700 }}>🔊 US</button>
+          <button onClick={()=>playAudio(w.audioUK,w.word,'en-GB')} style={{ background:C.cyan+'18',border:`1px solid ${C.cyan}44`,borderRadius:'8px',padding:'5px 12px',color:C.cyan,cursor:'pointer',fontSize:'12px',fontWeight:700 }}>🔊 UK</button>
+        </div>
       </div>
-      {!revealed?(
-        <button onClick={()=>setRevealed(true)} style={{ width:'100%',background:`linear-gradient(135deg,${C.blue},#2563EB)`,border:'none',borderRadius:'16px',padding:'20px',color:'#fff',fontFamily:'Inter',fontSize:'18px',fontWeight:700,cursor:'pointer' }}>答えを見る</button>
-      ):(
-        <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:'10px' }}>
-          {[['😰','難しい',C.red,0],['🤔','普通',C.orange,1],['😊','簡単',C.green,2]].map(([em,lb,col,q])=>(
-            <button key={lb} onClick={()=>answer(q)} style={{ background:col+'18',border:`1px solid ${col}`,borderRadius:'14px',padding:'16px 8px',color:col,cursor:'pointer',fontFamily:'"DM Sans",sans-serif',fontSize:'14px',fontWeight:700,lineHeight:'1.5' }}>
-              <div style={{ fontSize:'22px',marginBottom:'4px' }}>{em}</div>{lb}
+      <div style={{ color:C.muted,fontSize:'11px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.06em',textAlign:'center',marginBottom:'10px' }}>意味を選んでください</div>
+      <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:'10px' }}>
+        {choices.map((choice,i)=>{
+          let bg=C.card,border=C.border,col=C.text;
+          if(selected!==null){
+            if(choice===w.meaning){bg=C.green+'22';border=C.green;col=C.green;}
+            else if(choice===selected){bg=C.red+'22';border=C.red;col=C.red;}
+            else{bg=C.card;border=C.dim;col=C.muted;}
+          }
+          return(
+            <button key={i} onClick={()=>handleSelect(choice)} disabled={selected!==null} style={{ background:bg,border:`2px solid ${border}`,borderRadius:'14px',padding:'14px 10px',color:col,cursor:selected!==null?'default':'pointer',fontFamily:'"DM Sans",sans-serif',fontSize:'13px',fontWeight:600,lineHeight:'1.5',textAlign:'center',transition:'all 0.25s',minHeight:'64px' }}>
+              {choice}
             </button>
-          ))}
+          );
+        })}
+      </div>
+      {selected!==null&&(
+        <div style={{ marginTop:'12px' }}>
+          <div style={{ padding:'14px 16px',borderRadius:'14px',background:selected===w.meaning?C.green+'18':C.red+'18',border:`1px solid ${selected===w.meaning?C.green:C.red}`,marginBottom:'10px' }}>
+            <div style={{ color:selected===w.meaning?C.green:C.red,fontWeight:700,fontSize:'15px',marginBottom:'8px',textAlign:'center' }}>{selected===w.meaning?'✓ 正解！':'✗ 不正解'}</div>
+            {selected!==w.meaning&&<div style={{ color:C.text,fontSize:'13px',marginBottom:'8px',textAlign:'center' }}>正解: <span style={{ color:C.green,fontWeight:700 }}>{w.meaning}</span></div>}
+            {w.examples?.filter(e=>e).length>0&&(
+              <div style={{ marginTop:'6px' }}>
+                <div style={{ color:C.muted,fontSize:'11px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.05em',marginBottom:'6px' }}>例文</div>
+                {w.examples.filter(e=>e).map((ex,i)=><div key={i} style={{ background:'#08122088',borderLeft:`3px solid ${C.blue}`,padding:'8px 12px',borderRadius:'0 8px 8px 0',color:C.text,fontSize:'13px',lineHeight:'1.6',marginBottom:'4px',fontStyle:'italic' }}>{ex}</div>)}
+              </div>
+            )}
+          </div>
+          {loadingExp&&(
+            <div style={{ padding:'14px',background:C.card,border:`1px solid ${C.border}`,borderRadius:'14px',textAlign:'center',color:C.muted,fontSize:'13px',marginBottom:'10px',display:'flex',alignItems:'center',justifyContent:'center',gap:'8px' }}>
+              <span style={{ display:'inline-block',width:'14px',height:'14px',border:`2px solid ${C.muted}`,borderTopColor:C.cyan,borderRadius:'50%',animation:'spin 0.8s linear infinite' }}/>
+              解説を生成中...
+            </div>
+          )}
+          {explanation&&(explanation.etymology||explanation.image||explanation.usage)&&(
+            <div style={{ padding:'16px',background:'linear-gradient(135deg,#080F1E,#0A1225)',border:`1px solid ${C.dim}`,borderRadius:'16px',marginBottom:'10px' }}>
+              <div style={{ color:C.yellow,fontSize:'12px',fontWeight:700,marginBottom:'12px',display:'flex',alignItems:'center',gap:'6px' }}>
+                <span>📚</span><span>語源・イメージ解説</span>
+              </div>
+              {explanation.etymology&&(
+                <div style={{ marginBottom:'10px' }}>
+                  <div style={{ color:C.cyan,fontSize:'11px',fontWeight:700,marginBottom:'4px' }}>📖 語源・由来</div>
+                  <div style={{ color:C.text,fontSize:'13px',lineHeight:'1.7' }}>{explanation.etymology}</div>
+                </div>
+              )}
+              {explanation.image&&(
+                <div style={{ marginBottom:'10px' }}>
+                  <div style={{ color:C.green,fontSize:'11px',fontWeight:700,marginBottom:'4px' }}>🧠 頭でイメージ</div>
+                  <div style={{ color:C.text,fontSize:'13px',lineHeight:'1.7' }}>{explanation.image}</div>
+                </div>
+              )}
+              {explanation.usage&&(
+                <div>
+                  <div style={{ color:C.orange,fontSize:'11px',fontWeight:700,marginBottom:'4px' }}>💬 使い方・ニュアンス</div>
+                  <div style={{ color:C.text,fontSize:'13px',lineHeight:'1.7' }}>{explanation.usage}</div>
+                </div>
+              )}
+            </div>
+          )}
+          <button onClick={handleNext} style={{ width:'100%',background:`linear-gradient(135deg,${C.blue},#2563EB)`,border:'none',borderRadius:'14px',padding:'16px',color:'#fff',fontFamily:'Inter',fontSize:'16px',fontWeight:700,cursor:'pointer',marginBottom:'4px' }}>
+            {cur+1>=queue.length?'結果を見る →':'次へ →'}
+          </button>
         </div>
       )}
     </div>
   );
 }
+
 
 // ===== STATS =====
 function StatsView({ words, streak }) {
