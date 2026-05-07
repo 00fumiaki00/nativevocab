@@ -573,6 +573,7 @@ export default function App() {
   return (
     <div style={{ background:C.bg,minHeight:'100vh',color:C.text,fontFamily:'"DM Sans",sans-serif',display:'flex',flexDirection:'column',maxWidth:'480px',margin:'0 auto' }}>
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+      <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
       <div style={{ flex:1,paddingBottom:'80px',overflowY:'auto' }}>
         {view==='home'    && <HomeView words={words} streak={streak} due={due} onStudy={()=>setView('study')} onAdd={()=>{setEditWord(null);setView('add');}} />}
         {view==='library' && <LibraryView words={words} onEdit={w=>{setEditWord(w);setView('add');}} onDelete={id=>saveWords(words.filter(w=>w.id!==id))} onFetchSlang={()=>setShowSlangModal(true)} />}
@@ -748,7 +749,11 @@ function AddWordView({ editWord, onSave, onCancel }) {
 function LibraryView({ words, onEdit, onDelete, onFetchSlang }) {
   const [search,setSearch]=useState('');
   const [filter,setFilter]=useState('すべて');
-  const filtered=words.filter(w=>(!search||w.word.toLowerCase().includes(search.toLowerCase())||w.meaning.includes(search))&&(filter==='すべて'||w.category===filter));
+  const filtered=words.filter(w=>{
+    const matchSearch=!search||w.word.toLowerCase().includes(search.toLowerCase())||w.meaning.includes(search);
+    const matchFilter=filter==='すべて'||(filter==='単語'?!w.word.includes(' '):w.category===filter);
+    return matchSearch&&matchFilter;
+  });
   return (
     <div style={{ padding:'28px 20px' }}>
       <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'20px' }}>
@@ -759,7 +764,7 @@ function LibraryView({ words, onEdit, onDelete, onFetchSlang }) {
       </div>
       <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="🔍 単語・意味で検索..." style={{ ...inp,marginBottom:'14px' }}/>
       <div style={{ display:'flex',gap:'8px',overflowX:'auto',paddingBottom:'8px',marginBottom:'16px',scrollbarWidth:'none' }}>
-        {['すべて',...CATS].map(c=><button key={c} onClick={()=>setFilter(c)} style={{ background:filter===c?gc(c):C.card,border:`1px solid ${filter===c?gc(c):C.border}`,borderRadius:'20px',padding:'8px 14px',color:filter===c?'#fff':C.muted,cursor:'pointer',fontSize:'13px',fontWeight:600,whiteSpace:'nowrap' }}>{c}</button>)}
+        {['すべて','単語',...CATS].map(c=><button key={c} onClick={()=>setFilter(c)} style={{ background:filter===c?(c==='単語'?C.blue:gc(c)):C.card,border:`1px solid ${filter===c?(c==='単語'?C.blue:gc(c)):C.border}`,borderRadius:'20px',padding:'8px 14px',color:filter===c?'#fff':C.muted,cursor:'pointer',fontSize:'13px',fontWeight:600,whiteSpace:'nowrap' }}>{c}</button>)}
       </div>
       <div style={{ color:C.muted,fontSize:'13px',marginBottom:'14px' }}>{filtered.length}語</div>
       {filtered.length===0?(
@@ -824,6 +829,23 @@ function StudyView({ words, due, onComplete, onBack }) {
   const [uw,setUw]=useState([...words]);
   const [done,setDone]=useState(false);
   const [currentPhonetic,setCurrentPhonetic]=useState('');
+  const [filterCat,setFilterCat]=useState('すべて');
+  const [filterLevel,setFilterLevel]=useState(0);
+  const [explanation,setExplanation]=useState(null);
+  const [loadingExp,setLoadingExp]=useState(false);
+  const [pendingWords,setPendingWords]=useState(null);
+  const [pendingStats,setPendingStats]=useState(null);
+
+  const filteredWords=words.filter(w=>{
+    const catOk=filterCat==='すべて'||(filterCat==='単語'?!w.word.includes(' '):w.category===filterCat);
+    const lvlOk=filterLevel===0||w.level===filterLevel;
+    return catOk&&lvlOk;
+  });
+  const filteredDue=due.filter(w=>{
+    const catOk=filterCat==='すべて'||(filterCat==='単語'?!w.word.includes(' '):w.category===filterCat);
+    const lvlOk=filterLevel===0||w.level===filterLevel;
+    return catOk&&lvlOk;
+  });
 
   useEffect(()=>{
     if(!queue.length||cur>=queue.length)return;
@@ -834,17 +856,38 @@ function StudyView({ words, due, onComplete, onBack }) {
     const pool=[...sameCat,...diffCat];
     const wrong=pool.slice(0,3).map(x=>x.meaning);
     setChoices([...wrong,w.meaning].sort(()=>Math.random()-0.5));
-    setSelected(null);
+    setSelected(null);setExplanation(null);setLoadingExp(false);
     if(w.phonetic){setCurrentPhonetic(w.phonetic);}
     else{setCurrentPhonetic('');lookupWord(w.word).then(d=>{if(d.phonetic)setCurrentPhonetic(d.phonetic);});}
   },[cur,queue]); // eslint-disable-line
 
   const start=m=>{
+    const fw=filteredWords.length>=4?filteredWords:words;
+    const fd=filteredDue;
     let q;
-    if(m==='srs')q=due.length>0?[...due].sort(()=>Math.random()-0.5):[...words].sort(()=>Math.random()-0.5).slice(0,10);
-    else if(m==='random')q=[...words].sort(()=>Math.random()-0.5).slice(0,20);
-    else{q=words.filter(w=>(w.history||[]).slice(-5).filter(h=>!h.correct).length>0);if(q.length===0)q=[...words].sort(()=>Math.random()-0.5).slice(0,10);}
-    setQueue(q);setCur(0);setSelected(null);setStats({correct:0,wrong:0});setUw([...words]);setDone(false);setMode(m);
+    if(m==='srs')q=fd.length>0?[...fd].sort(()=>Math.random()-0.5):[...fw].sort(()=>Math.random()-0.5).slice(0,10);
+    else if(m==='random')q=[...fw].sort(()=>Math.random()-0.5).slice(0,20);
+    else{q=fw.filter(w=>(w.history||[]).slice(-5).filter(h=>!h.correct).length>0);if(q.length===0)q=[...fw].sort(()=>Math.random()-0.5).slice(0,10);}
+    setQueue(q);setCur(0);setSelected(null);setStats({correct:0,wrong:0});setUw([...words]);setDone(false);setMode(m);setExplanation(null);setPendingWords(null);setPendingStats(null);
+  };
+
+  const generateExplanation=async(w)=>{
+    setLoadingExp(true);
+    try{
+      const res=await fetch('/api/claude',{
+        method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          model:'claude-haiku-4-5-20251001',
+          max_tokens:600,
+          messages:[{role:'user',content:`英語の「${w.word}」について、日本語で以下をJSON形式のみで返してください（コードブロック・説明不要）:\n{"etymology":"語源や由来（なぜこの単語/表現が生まれたか、簡潔に2〜3文）","image":"頭の中でイメージしやすい記憶術や連想法（具体的な絵や場面が浮かぶような解説）","usage":"よく使われる場面やニュアンスの補足（1〜2文）"}`}]
+        })
+      });
+      const data=await res.json();
+      const text=data.content?.find(b=>b.type==='text')?.text||'{}';
+      const clean=text.replace(/```json|```/g,'').trim();
+      setExplanation(JSON.parse(clean));
+    }catch(e){setExplanation({etymology:'',image:'',usage:''});}
+    setLoadingExp(false);
   };
 
   const handleSelect=(choice)=>{
@@ -858,22 +901,41 @@ function StudyView({ words, due, onComplete, onBack }) {
     const updatedWords=uw.map(x=>x.id===w.id?{...x,srs,history:hist}:x);
     const newStats={correct:stats.correct+(ok?1:0),wrong:stats.wrong+(ok?0:1)};
     setSelected(choice);
-    setTimeout(()=>{
-      setUw(updatedWords);
-      setStats(newStats);
-      if(cur+1>=queue.length)setDone(true);
-      else setCur(cur+1);
-    },1300);
+    setPendingWords(updatedWords);
+    setPendingStats(newStats);
+    generateExplanation(w);
+  };
+
+  const handleNext=()=>{
+    if(!pendingWords)return;
+    setUw(pendingWords);
+    setStats(pendingStats);
+    if(cur+1>=queue.length)setDone(true);
+    else{setCur(cur+1);setExplanation(null);setLoadingExp(false);}
   };
 
   if(!mode)return(
     <div style={{ padding:'28px 20px' }}>
-      <div style={{ display:'flex',alignItems:'center',gap:'12px',marginBottom:'32px' }}>
+      <div style={{ display:'flex',alignItems:'center',gap:'12px',marginBottom:'24px' }}>
         <button onClick={onBack} style={{ background:C.card,border:`1px solid ${C.border}`,borderRadius:'10px',padding:'8px 14px',color:C.muted,cursor:'pointer',fontSize:'18px' }}>←</button>
         <div style={{ fontFamily:'Inter',fontSize:'22px',fontWeight:800 }}>学習モードを選択</div>
       </div>
+      <div style={{ marginBottom:'14px' }}>
+        <div style={{ color:C.muted,fontSize:'11px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.05em',marginBottom:'8px' }}>カテゴリー</div>
+        <div style={{ display:'flex',gap:'8px',overflowX:'auto',paddingBottom:'6px',scrollbarWidth:'none' }}>
+          {['すべて','単語',...CATS].map(c=><button key={c} onClick={()=>setFilterCat(c)} style={{ background:filterCat===c?(c==='単語'?C.blue:gc(c)):C.card,border:`1px solid ${filterCat===c?(c==='単語'?C.blue:gc(c)):C.border}`,borderRadius:'20px',padding:'7px 13px',color:filterCat===c?'#fff':C.muted,cursor:'pointer',fontSize:'12px',fontWeight:600,whiteSpace:'nowrap',flexShrink:0 }}>{c}</button>)}
+        </div>
+      </div>
+      <div style={{ marginBottom:'20px' }}>
+        <div style={{ color:C.muted,fontSize:'11px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.05em',marginBottom:'8px' }}>難易度</div>
+        <div style={{ display:'flex',gap:'6px' }}>
+          <button onClick={()=>setFilterLevel(0)} style={{ background:filterLevel===0?C.blue:C.card,border:`1px solid ${filterLevel===0?C.blue:C.border}`,borderRadius:'20px',padding:'7px 12px',color:filterLevel===0?'#fff':C.muted,cursor:'pointer',fontSize:'12px',fontWeight:600,whiteSpace:'nowrap' }}>すべて</button>
+          {[1,2,3,4,5].map(l=><button key={l} onClick={()=>setFilterLevel(l)} style={{ flex:1,background:filterLevel===l?'#FFD16622':C.card,border:`1px solid ${filterLevel===l?'#FFD166':C.border}`,borderRadius:'20px',padding:'7px 4px',color:filterLevel===l?'#FFD166':C.muted,cursor:'pointer',fontSize:'12px',fontWeight:700 }}>{'★'.repeat(l)}</button>)}
+        </div>
+      </div>
+      <div style={{ color:C.muted,fontSize:'12px',marginBottom:'16px',textAlign:'center' }}>対象: <span style={{ color:C.text,fontWeight:700 }}>{filteredWords.length}</span>語</div>
       <div style={{ display:'flex',flexDirection:'column',gap:'16px' }}>
-        {[{m:'srs',emoji:'🧠',title:'SRS復習',desc:`今日の復習: ${due.length}語`,col:C.blue,badge:due.length},{m:'random',emoji:'🎲',title:'ランダム練習',desc:'全単語からランダムで20語',col:C.cyan},{m:'wrong',emoji:'💪',title:'苦手な単語',desc:'間違えた単語を集中練習',col:C.orange}].map(({m,emoji,title,desc,col,badge})=>(
+        {[{m:'srs',emoji:'🧠',title:'SRS復習',desc:`今日の復習: ${filteredDue.length}語`,col:C.blue,badge:filteredDue.length},{m:'random',emoji:'🎲',title:'ランダム練習',desc:`${Math.min(filteredWords.length,20)}語をランダムで練習`,col:C.cyan},{m:'wrong',emoji:'💪',title:'苦手な単語',desc:'間違えた単語を集中練習',col:C.orange}].map(({m,emoji,title,desc,col,badge})=>(
           <div key={m} onClick={()=>start(m)} style={{ background:C.card,border:`1px solid ${col}33`,borderRadius:'20px',padding:'22px',cursor:'pointer',display:'flex',alignItems:'center',gap:'16px' }}>
             <div style={{ fontSize:'40px' }}>{emoji}</div>
             <div style={{ flex:1 }}><div style={{ fontFamily:'Inter',fontSize:'18px',fontWeight:800 }}>{title}</div><div style={{ color:C.muted,fontSize:'14px',marginTop:'4px' }}>{desc}</div></div>
@@ -949,10 +1011,51 @@ function StudyView({ words, due, onComplete, onBack }) {
         })}
       </div>
       {selected!==null&&(
-        <div style={{ marginTop:'12px',padding:'14px 16px',borderRadius:'14px',background:selected===w.meaning?C.green+'18':C.red+'18',border:`1px solid ${selected===w.meaning?C.green:C.red}`,textAlign:'center' }}>
-          <div style={{ color:selected===w.meaning?C.green:C.red,fontWeight:700,fontSize:'15px',marginBottom:selected===w.meaning?0:'6px' }}>{selected===w.meaning?'✓ 正解！':'✗ 不正解'}</div>
-          {selected!==w.meaning&&<div style={{ color:C.text,fontSize:'13px' }}>正解: <span style={{ color:C.green,fontWeight:700 }}>{w.meaning}</span></div>}
-          {w.examples?.find(e=>e)&&<div style={{ color:C.muted,fontSize:'12px',marginTop:'6px',fontStyle:'italic' }}>{w.examples.find(e=>e)}</div>}
+        <div style={{ marginTop:'12px' }}>
+          <div style={{ padding:'14px 16px',borderRadius:'14px',background:selected===w.meaning?C.green+'18':C.red+'18',border:`1px solid ${selected===w.meaning?C.green:C.red}`,marginBottom:'10px' }}>
+            <div style={{ color:selected===w.meaning?C.green:C.red,fontWeight:700,fontSize:'15px',marginBottom:'8px',textAlign:'center' }}>{selected===w.meaning?'✓ 正解！':'✗ 不正解'}</div>
+            {selected!==w.meaning&&<div style={{ color:C.text,fontSize:'13px',marginBottom:'8px',textAlign:'center' }}>正解: <span style={{ color:C.green,fontWeight:700 }}>{w.meaning}</span></div>}
+            {w.examples?.filter(e=>e).length>0&&(
+              <div style={{ marginTop:'6px' }}>
+                <div style={{ color:C.muted,fontSize:'11px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.05em',marginBottom:'6px' }}>例文</div>
+                {w.examples.filter(e=>e).map((ex,i)=><div key={i} style={{ background:'#08122088',borderLeft:`3px solid ${C.blue}`,padding:'8px 12px',borderRadius:'0 8px 8px 0',color:C.text,fontSize:'13px',lineHeight:'1.6',marginBottom:'4px',fontStyle:'italic' }}>{ex}</div>)}
+              </div>
+            )}
+          </div>
+          {loadingExp&&(
+            <div style={{ padding:'14px',background:C.card,border:`1px solid ${C.border}`,borderRadius:'14px',textAlign:'center',color:C.muted,fontSize:'13px',marginBottom:'10px',display:'flex',alignItems:'center',justifyContent:'center',gap:'8px' }}>
+              <span style={{ display:'inline-block',width:'14px',height:'14px',border:`2px solid ${C.muted}`,borderTopColor:C.cyan,borderRadius:'50%',animation:'spin 0.8s linear infinite' }}/>
+              解説を生成中...
+            </div>
+          )}
+          {explanation&&(explanation.etymology||explanation.image||explanation.usage)&&(
+            <div style={{ padding:'16px',background:'linear-gradient(135deg,#080F1E,#0A1225)',border:`1px solid ${C.dim}`,borderRadius:'16px',marginBottom:'10px' }}>
+              <div style={{ color:C.yellow,fontSize:'12px',fontWeight:700,marginBottom:'12px',display:'flex',alignItems:'center',gap:'6px' }}>
+                <span>📚</span><span>語源・イメージ解説</span>
+              </div>
+              {explanation.etymology&&(
+                <div style={{ marginBottom:'10px' }}>
+                  <div style={{ color:C.cyan,fontSize:'11px',fontWeight:700,marginBottom:'4px' }}>📖 語源・由来</div>
+                  <div style={{ color:C.text,fontSize:'13px',lineHeight:'1.7' }}>{explanation.etymology}</div>
+                </div>
+              )}
+              {explanation.image&&(
+                <div style={{ marginBottom:'10px' }}>
+                  <div style={{ color:C.green,fontSize:'11px',fontWeight:700,marginBottom:'4px' }}>🧠 頭でイメージ</div>
+                  <div style={{ color:C.text,fontSize:'13px',lineHeight:'1.7' }}>{explanation.image}</div>
+                </div>
+              )}
+              {explanation.usage&&(
+                <div>
+                  <div style={{ color:C.orange,fontSize:'11px',fontWeight:700,marginBottom:'4px' }}>💬 使い方・ニュアンス</div>
+                  <div style={{ color:C.text,fontSize:'13px',lineHeight:'1.7' }}>{explanation.usage}</div>
+                </div>
+              )}
+            </div>
+          )}
+          <button onClick={handleNext} style={{ width:'100%',background:`linear-gradient(135deg,${C.blue},#2563EB)`,border:'none',borderRadius:'14px',padding:'16px',color:'#fff',fontFamily:'Inter',fontSize:'16px',fontWeight:700,cursor:'pointer',marginBottom:'4px' }}>
+            {cur+1>=queue.length?'結果を見る →':'次へ →'}
+          </button>
         </div>
       )}
     </div>
