@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 
 const PRELOADED = [
   {id:"pre_0",word:"GOAT",meaning:"史上最高（Greatest Of All Time）",category:"スラング",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["He's the GOAT of basketball.","That pizza place is the GOAT."],image:"",srs:{},history:[],createdAt:1777887506629},
-  {id:"pre_1",word:"vibe",meaning:"雰囲気、ノリ、フィーリング",category:"スラング",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["This place has such a good vibe.","I'm not really vibing with this music."],image:"",srs:{},history:[],createdAt:1777887566629},
+  {id:"pre_1",word:"vibe",meaning:"雰囲気、独特のノリ・感じ",category:"スラング",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["This place has such a good vibe.","I'm not really vibing with this music."],image:"",srs:{},history:[],createdAt:1777887566629},
   {id:"pre_2",word:"no cap",meaning:"マジで、嘘じゃなく",category:"スラング",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["That was the best meal, no cap.","No cap, she's the smartest person I know."],image:"",srs:{},history:[],createdAt:1777887626629},
   {id:"pre_3",word:"lowkey",meaning:"ひそかに、実は、わりと",category:"スラング",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["I lowkey love this song.","I'm lowkey nervous about the interview."],image:"",srs:{},history:[],createdAt:1777887686629},
   {id:"pre_4",word:"highkey",meaning:"めちゃくちゃ、完全に",category:"スラング",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I highkey love this show.","I'm highkey obsessed with this."],image:"",srs:{},history:[],createdAt:1777887746629},
@@ -22,18 +22,18 @@ const PRELOADED = [
   {id:"pre_18",word:"shade",meaning:"嫌みを言う、陰口",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["She threw shade at her coworker.","Don't throw shade — just say what you mean."],image:"",srs:{},history:[],createdAt:1777888586629},
   {id:"pre_19",word:"basic",meaning:"ありふれた、没個性",category:"スラング",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["That's so basic.","Nothing wrong with being a little basic."],image:"",srs:{},history:[],createdAt:1777888646629},
   {id:"pre_20",word:"fire",meaning:"最高、かっこいい",category:"スラング",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["That track is straight fire.","Your outfit is fire today."],image:"",srs:{},history:[],createdAt:1777888706629},
-  {id:"pre_21",word:"drip",meaning:"おしゃれなファッション・スタイル",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["His drip is always on point.","She walked in with serious drip."],image:"",srs:{},history:[],createdAt:1777888766629},
+  {id:"pre_21",word:"drip",meaning:"おしゃれな服装・着こなし",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["His drip is always on point.","She walked in with serious drip."],image:"",srs:{},history:[],createdAt:1777888766629},
   {id:"pre_22",word:"cap",meaning:"嘘をつく（no capの反対）",category:"スラング",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Stop capping — that never happened.","Are you capping right now?"],image:"",srs:{},history:[],createdAt:1777888826629},
   {id:"pre_23",word:"woke",meaning:"社会問題に意識の高い",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["He's very woke about social issues.","Stay woke."],image:"",srs:{},history:[],createdAt:1777888886629},
   {id:"pre_24",word:"rizz",meaning:"モテオーラ、異性を惹きつける力",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["He has serious rizz.","She walked in with rizz."],image:"",srs:{},history:[],createdAt:1777888946629},
-  {id:"pre_25",word:"snatched",meaning:"完璧な体型・スタイル",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["Your eyebrows are snatched.","She looks snatched in that dress."],image:"",srs:{},history:[],createdAt:1777889006629},
+  {id:"pre_25",word:"snatched",meaning:"完璧に引き締まった体型・着こなし",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["Your eyebrows are snatched.","She looks snatched in that dress."],image:"",srs:{},history:[],createdAt:1777889006629},
   {id:"pre_26",word:"glow up",meaning:"外見・内面が劇的に良くなる",category:"スラング",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["She had a major glow up over the summer.","That glow up is real."],image:"",srs:{},history:[],createdAt:1777889066629},
   {id:"pre_27",word:"stan",meaning:"熱狂的ファン、崇拝する",category:"スラング",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I stan this artist so hard.","She stans that show religiously."],image:"",srs:{},history:[],createdAt:1777889126629},
   {id:"pre_28",word:"periodt",meaning:"これ以上言うことなし（強調）",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["That's the best show ever, periodt.","She's the best, periodt."],image:"",srs:{},history:[],createdAt:1777889186629},
   {id:"pre_29",word:"understood the assignment",meaning:"完璧にこなした",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["She really understood the assignment tonight.","He understood the assignment completely."],image:"",srs:{},history:[],createdAt:1777889246629},
   {id:"pre_30",word:"it's giving",meaning:"〜な雰囲気がある",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["This outfit is giving CEO energy.","The vibe is giving summer vacation."],image:"",srs:{},history:[],createdAt:1777889306629},
   {id:"pre_31",word:"main character",meaning:"主人公エネルギー、自分が主役",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["She's giving main character energy.","You're such a main character."],image:"",srs:{},history:[],createdAt:1777889366629},
-  {id:"pre_32",word:"era",meaning:"〜な時期、フェーズ",category:"スラング",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I'm in my healthy era.","She's in her boss era."],image:"",srs:{},history:[],createdAt:1777889426629},
+  {id:"pre_32",word:"era",meaning:"〜な時期・段階",category:"スラング",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I'm in my healthy era.","She's in her boss era."],image:"",srs:{},history:[],createdAt:1777889426629},
   {id:"pre_33",word:"red flag",meaning:"危険なサイン、要注意",category:"スラング",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["That's a major red flag.","He shows so many red flags."],image:"",srs:{},history:[],createdAt:1777889486629},
   {id:"pre_34",word:"green flag",meaning:"良いサイン、安心できる",category:"スラング",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["He always texts back — green flag.","She's punctual, that's a green flag."],image:"",srs:{},history:[],createdAt:1777889546629},
   {id:"pre_35",word:"situationship",meaning:"曖昧な恋愛関係",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["We're in a situationship right now.","I'm tired of this situationship."],image:"",srs:{},history:[],createdAt:1777889606629},
@@ -44,7 +44,7 @@ const PRELOADED = [
   {id:"pre_40",word:"based",meaning:"自分の信念を曲げない、かっこいい",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["That opinion is based.","He's so based for saying that."],image:"",srs:{},history:[],createdAt:1777889906629},
   {id:"pre_41",word:"NPC",meaning:"主体性のない人（ゲームの脇役キャラ）",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["He's such an NPC in social situations.","Stop being an NPC."],image:"",srs:{},history:[],createdAt:1777889966629},
   {id:"pre_42",word:"unhinged",meaning:"ぶっ飛んでる、クレイジー",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["That response was completely unhinged.","She went full unhinged mode."],image:"",srs:{},history:[],createdAt:1777890026629},
-  {id:"pre_43",word:"gaslit",meaning:"ガスライティングされた",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["I felt completely gaslit after that.","He gaslit her into thinking it was her fault."],image:"",srs:{},history:[],createdAt:1777890086629},
+  {id:"pre_43",word:"gaslit",meaning:"事実を歪められて現実を疑わせられた状態",category:"スラング",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["I felt completely gaslit after that.","He gaslit her into thinking it was her fault."],image:"",srs:{},history:[],createdAt:1777890086629},
   {id:"pre_44",word:"toxic",meaning:"有害な、関係などがよくない",category:"スラング",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["That relationship was so toxic.","Toxic behavior isn't okay."],image:"",srs:{},history:[],createdAt:1777890146629},
   {id:"pre_45",word:"wholesome",meaning:"心が温まる、純粋でかわいい",category:"スラング",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["That video is so wholesome.","Their friendship is the most wholesome thing."],image:"",srs:{},history:[],createdAt:1777890206629},
   {id:"pre_46",word:"shook",meaning:"衝撃を受けた、驚いた",category:"スラング",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I was absolutely shook by that news.","She's shook after that game."],image:"",srs:{},history:[],createdAt:1777890266629},
@@ -136,7 +136,7 @@ const PRELOADED = [
   {id:"pre_132",word:"under the weather",meaning:"体の具合が悪い",category:"熟語・イディオム",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I'm feeling a bit under the weather.","She's under the weather today."],image:"",srs:{},history:[],createdAt:1777895426629},
   {id:"pre_133",word:"break a leg",meaning:"頑張って（舞台・発表前）",category:"熟語・イディオム",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Break a leg on your performance tonight!","Break a leg — you've got this."],image:"",srs:{},history:[],createdAt:1777895486629},
   {id:"pre_134",word:"bite the bullet",meaning:"歯を食いしばって耐える",category:"熟語・イディオム",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["Just bite the bullet and get it done.","Sometimes you have to bite the bullet."],image:"",srs:{},history:[],createdAt:1777895546629},
-  {id:"pre_135",word:"spill the tea",meaning:"ゴシップを話す",category:"熟語・イディオム",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Okay, spill the tea — what happened?","She spilled all the tea."],image:"",srs:{},history:[],createdAt:1777895606629},
+  {id:"pre_135",word:"spill the tea",meaning:"うわさ話や秘密を暴露する",category:"熟語・イディオム",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Okay, spill the tea — what happened?","She spilled all the tea."],image:"",srs:{},history:[],createdAt:1777895606629},
   {id:"pre_136",word:"piece of cake",meaning:"朝飯前、簡単",category:"熟語・イディオム",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["That test was a piece of cake.","For her, it's a piece of cake."],image:"",srs:{},history:[],createdAt:1777895666629},
   {id:"pre_137",word:"hit the nail on the head",meaning:"核心をついた",category:"熟語・イディオム",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["You hit the nail on the head.","She hit the nail on the head."],image:"",srs:{},history:[],createdAt:1777895726629},
   {id:"pre_138",word:"burn bridges",meaning:"関係を壊す",category:"熟語・イディオム",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["Don't burn bridges when you quit.","He burned every bridge he had."],image:"",srs:{},history:[],createdAt:1777895786629},
@@ -287,23 +287,23 @@ const PRELOADED = [
   {id:"pre_283",word:"buy-in",meaning:"賛同、承認",category:"ビジネス",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["We need buy-in from leadership.","Getting buy-in is the hardest part."],image:"",srs:{},history:[],createdAt:1777904486629},
   {id:"pre_284",word:"alignment",meaning:"方向性の一致",category:"ビジネス",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["We need alignment across teams.","Let's make sure there's full alignment."],image:"",srs:{},history:[],createdAt:1777904546629},
   {id:"pre_285",word:"greenlight",meaning:"承認する",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["The project got greenlighted.","We're waiting for the greenlight."],image:"",srs:{},history:[],createdAt:1777904606629},
-  {id:"pre_286",word:"bottleneck",meaning:"ボトルネック",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Where's the bottleneck in the process?","Fix the bottleneck first."],image:"",srs:{},history:[],createdAt:1777904666629},
-  {id:"pre_287",word:"pipeline",meaning:"パイプライン、案件",category:"ビジネス",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["What's in our sales pipeline?","We have a strong pipeline this quarter."],image:"",srs:{},history:[],createdAt:1777904726629},
+  {id:"pre_286",word:"bottleneck",meaning:"障害・詰まり箇所、処理が滞る部分",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Where's the bottleneck in the process?","Fix the bottleneck first."],image:"",srs:{},history:[],createdAt:1777904666629},
+  {id:"pre_287",word:"pipeline",meaning:"進行中の案件・商談の流れ",category:"ビジネス",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["What's in our sales pipeline?","We have a strong pipeline this quarter."],image:"",srs:{},history:[],createdAt:1777904726629},
   {id:"pre_288",word:"north star",meaning:"最終目標、指針",category:"ビジネス",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["What's our north star metric?","Keep the north star in mind."],image:"",srs:{},history:[],createdAt:1777904786629},
   {id:"pre_289",word:"game plan",meaning:"計画、戦略",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["What's the game plan for tomorrow?","Let's review the game plan."],image:"",srs:{},history:[],createdAt:1777904846629},
   {id:"pre_290",word:"roadmap",meaning:"計画の工程表、進行計画",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Share the product roadmap.","The roadmap outlines our priorities."],image:"",srs:{},history:[],createdAt:1777904906629},
-  {id:"pre_291",word:"milestone",meaning:"マイルストーン、節目",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["We hit a major milestone.","What's the next milestone?"],image:"",srs:{},history:[],createdAt:1777904966629},
+  {id:"pre_291",word:"milestone",meaning:"重要な節目・達成目標",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["We hit a major milestone.","What's the next milestone?"],image:"",srs:{},history:[],createdAt:1777904966629},
   {id:"pre_292",word:"sign off on",meaning:"最終承認する",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Can you sign off on this budget?","We need the CEO to sign off."],image:"",srs:{},history:[],createdAt:1777905026629},
   {id:"pre_293",word:"elevator pitch",meaning:"短い売り込み、要約プレゼン",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Practice your elevator pitch.","Give me your elevator pitch in 60 seconds."],image:"",srs:{},history:[],createdAt:1777905086629},
   {id:"pre_294",word:"mission critical",meaning:"最重要の",category:"ビジネス",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["This is mission critical.","Treat it as mission critical."],image:"",srs:{},history:[],createdAt:1777905146629},
-  {id:"pre_295",word:"quick sync",meaning:"短いミーティング",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Can we do a quick sync?","Let's do a quick sync before the call."],image:"",srs:{},history:[],createdAt:1777905206629},
+  {id:"pre_295",word:"quick sync",meaning:"短い打ち合わせ・軽い状況確認",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Can we do a quick sync?","Let's do a quick sync before the call."],image:"",srs:{},history:[],createdAt:1777905206629},
   {id:"pre_296",word:"stand-up",meaning:"立ったままの短いチームミーティング（毎日の進捗共有）",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["We have stand-up at 9 AM.","Don't miss the daily stand-up."],image:"",srs:{},history:[],createdAt:1777905266629},
   {id:"pre_297",word:"proactive",meaning:"先手を打つ、積極的な",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Be proactive about communication.","She's always proactive."],image:"",srs:{},history:[],createdAt:1777905326629},
   {id:"pre_298",word:"streamline",meaning:"効率化する",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["We need to streamline the process.","Streamline the onboarding steps."],image:"",srs:{},history:[],createdAt:1777905386629},
   {id:"pre_299",word:"optimize",meaning:"最適化する",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["We need to optimize performance.","Optimize the workflow."],image:"",srs:{},history:[],createdAt:1777905446629},
   {id:"pre_300",word:"benchmark",meaning:"基準値、比較する",category:"ビジネス",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["What's the industry benchmark?","Let's benchmark against competitors."],image:"",srs:{},history:[],createdAt:1777905506629},
   {id:"pre_301",word:"go-to-market",meaning:"市場投入戦略",category:"ビジネス",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["What's the go-to-market strategy?","Finalize the go-to-market plan."],image:"",srs:{},history:[],createdAt:1777905566629},
-  {id:"pre_302",word:"best practice",meaning:"ベストプラクティス",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Follow industry best practices.","What's the best practice here?"],image:"",srs:{},history:[],createdAt:1777905626629},
+  {id:"pre_302",word:"best practice",meaning:"最善の手法・推奨されるやり方",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Follow industry best practices.","What's the best practice here?"],image:"",srs:{},history:[],createdAt:1777905626629},
   {id:"pre_303",word:"empower",meaning:"力を与える",category:"ビジネス",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["We want to empower our employees.","Empower your team to make decisions."],image:"",srs:{},history:[],createdAt:1777905686629},
   {id:"pre_304",word:"incentivize",meaning:"動機付ける",category:"ビジネス",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["We need to incentivize performance.","Incentivize the sales team."],image:"",srs:{},history:[],createdAt:1777905746629},
   {id:"pre_305",word:"disruptive",meaning:"業界を変える、革新的な",category:"ビジネス",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["It's a disruptive technology.","That startup is truly disruptive."],image:"",srs:{},history:[],createdAt:1777905806629},
@@ -323,23 +323,23 @@ const PRELOADED = [
   {id:"pre_319",word:"off the beaten path",meaning:"穴場の、観光地から外れた",category:"旅行",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["We found a café off the beaten path.","I love traveling off the beaten path."],image:"",srs:{},history:[],createdAt:1777906646629},
   {id:"pre_320",word:"tourist trap",meaning:"観光客向けのぼったくり場所",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["That place near the tower is a tourist trap.","Avoid tourist traps — eat where locals eat."],image:"",srs:{},history:[],createdAt:1777906706629},
   {id:"pre_321",word:"local gem",meaning:"地元の隠れた名所",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["This café is a real local gem.","Ask locals — they know all the local gems."],image:"",srs:{},history:[],createdAt:1777906766629},
-  {id:"pre_322",word:"check in",meaning:"チェックインする",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["We can check in after 3 PM.","Check in online to save time."],image:"",srs:{},history:[],createdAt:1777906826629},
+  {id:"pre_322",word:"check in",meaning:"連絡・状況確認する、手続きして入場する",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["We can check in after 3 PM.","Check in online to save time."],image:"",srs:{},history:[],createdAt:1777906826629},
   {id:"pre_323",word:"layover",meaning:"乗り継ぎ待ち",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I have a 6-hour layover in Dubai.","A long layover can actually be a bonus."],image:"",srs:{},history:[],createdAt:1777906886629},
   {id:"pre_324",word:"all-inclusive",meaning:"全込み",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["We booked an all-inclusive resort.","Is this all-inclusive or extra?"],image:"",srs:{},history:[],createdAt:1777906946629},
   {id:"pre_325",word:"wander",meaning:"ぶらぶら歩く",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["We just wandered through the old town.","I love to wander without a plan."],image:"",srs:{},history:[],createdAt:1777907006629},
   {id:"pre_326",word:"bucket list",meaning:"死ぬまでにやりたいことリスト",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["Japan is on my bucket list.","Crossing bucket list items off feels amazing."],image:"",srs:{},history:[],createdAt:1777907066629},
-  {id:"pre_327",word:"travel hack",meaning:"旅のテクニック・裏技",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["A great travel hack: book on Tuesday.","Pack light — that's the best travel hack."],image:"",srs:{},history:[],createdAt:1777907126629},
-  {id:"pre_328",word:"road trip",meaning:"車旅、ロードトリップ",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["Let's do a road trip this summer.","Road trips are the best way to explore."],image:"",srs:{},history:[],createdAt:1777907186629},
-  {id:"pre_329",word:"backpacking",meaning:"バックパッキング旅行",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I went backpacking through Europe.","Backpacking teaches you to travel light."],image:"",srs:{},history:[],createdAt:1777907246629},
+  {id:"pre_327",word:"travel hack",meaning:"旅の裏技・お得な旅行術",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["A great travel hack: book on Tuesday.","Pack light — that's the best travel hack."],image:"",srs:{},history:[],createdAt:1777907126629},
+  {id:"pre_328",word:"road trip",meaning:"車での長距離旅行・ドライブ旅行",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["Let's do a road trip this summer.","Road trips are the best way to explore."],image:"",srs:{},history:[],createdAt:1777907186629},
+  {id:"pre_329",word:"backpacking",meaning:"荷物を最小限にした格安旅行",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I went backpacking through Europe.","Backpacking teaches you to travel light."],image:"",srs:{},history:[],createdAt:1777907246629},
   {id:"pre_330",word:"solo travel",meaning:"一人旅",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Solo travel changed my perspective.","Solo travel builds independence."],image:"",srs:{},history:[],createdAt:1777907306629},
-  {id:"pre_331",word:"itinerary",meaning:"旅程表、スケジュール",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["What's our itinerary for day two?","I'll send over the full itinerary."],image:"",srs:{},history:[],createdAt:1777907366629},
+  {id:"pre_331",word:"itinerary",meaning:"旅程表・日程計画",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["What's our itinerary for day two?","I'll send over the full itinerary."],image:"",srs:{},history:[],createdAt:1777907366629},
   {id:"pre_332",word:"sightseeing",meaning:"観光",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["We spent the day sightseeing.","Any sightseeing recommendations?"],image:"",srs:{},history:[],createdAt:1777907426629},
   {id:"pre_333",word:"day trip",meaning:"日帰り旅行",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["We did a day trip to Kyoto.","Perfect for a day trip from Tokyo."],image:"",srs:{},history:[],createdAt:1777907486629},
-  {id:"pre_334",word:"guided tour",meaning:"ガイドツアー",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["We joined a guided tour of the castle.","The guided tour was very informative."],image:"",srs:{},history:[],createdAt:1777907546629},
+  {id:"pre_334",word:"guided tour",meaning:"案内人付きの観光旅行",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["We joined a guided tour of the castle.","The guided tour was very informative."],image:"",srs:{},history:[],createdAt:1777907546629},
   {id:"pre_335",word:"hidden gem",meaning:"知られていない名所",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["That restaurant is a hidden gem.","The city is full of hidden gems."],image:"",srs:{},history:[],createdAt:1777907606629},
   {id:"pre_336",word:"must-see",meaning:"必見の",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["The old town is a must-see.","What are the must-sees here?"],image:"",srs:{},history:[],createdAt:1777907666629},
-  {id:"pre_337",word:"off-season",meaning:"オフシーズン",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Travel off-season to avoid crowds.","Prices drop during off-season."],image:"",srs:{},history:[],createdAt:1777907726629},
-  {id:"pre_338",word:"peak season",meaning:"ピークシーズン",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Avoid traveling during peak season.","Prices soar during peak season."],image:"",srs:{},history:[],createdAt:1777907786629},
+  {id:"pre_337",word:"off-season",meaning:"観光客の少ない閑散期",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Travel off-season to avoid crowds.","Prices drop during off-season."],image:"",srs:{},history:[],createdAt:1777907726629},
+  {id:"pre_338",word:"peak season",meaning:"観光客が最も多い繁忙期",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Avoid traveling during peak season.","Prices soar during peak season."],image:"",srs:{},history:[],createdAt:1777907786629},
   {id:"pre_339",word:"book in advance",meaning:"事前予約する",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Book in advance to get better rates.","Restaurants here require booking in advance."],image:"",srs:{},history:[],createdAt:1777907846629},
   {id:"pre_340",word:"last-minute",meaning:"ギリギリの、直前の",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I got a last-minute deal on flights.","We made a last-minute decision to go."],image:"",srs:{},history:[],createdAt:1777907906629},
   {id:"pre_341",word:"travel insurance",meaning:"旅行保険",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Always get travel insurance.","Travel insurance saved us on that trip."],image:"",srs:{},history:[],createdAt:1777907966629},
@@ -348,20 +348,20 @@ const PRELOADED = [
   {id:"pre_344",word:"carry-on",meaning:"機内持ち込み手荷物",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["I only travel with a carry-on.","Does this fit as a carry-on?"],image:"",srs:{},history:[],createdAt:1777908146629},
   {id:"pre_345",word:"connecting flight",meaning:"乗り継ぎ便",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["I have a connecting flight in Seoul.","My connecting flight was delayed."],image:"",srs:{},history:[],createdAt:1777908206629},
   {id:"pre_346",word:"redeye",meaning:"深夜便・早朝便",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I took the redeye to save on hotels.","Redeyes are tough but cheap."],image:"",srs:{},history:[],createdAt:1777908266629},
-  {id:"pre_347",word:"upgrade",meaning:"アップグレード",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I got a free upgrade to business class.","Ask nicely — you might get an upgrade."],image:"",srs:{},history:[],createdAt:1777908326629},
-  {id:"pre_348",word:"frequent flyer",meaning:"マイレージ会員",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I've been a frequent flyer for 10 years.","Frequent flyer miles got me a free trip."],image:"",srs:{},history:[],createdAt:1777908386629},
-  {id:"pre_349",word:"lounge access",meaning:"ラウンジ利用",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["My card gives lounge access.","Lounge access makes long layovers better."],image:"",srs:{},history:[],createdAt:1777908446629},
-  {id:"pre_350",word:"culture shock",meaning:"カルチャーショック",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Moving abroad gave me culture shock.","Culture shock is normal — it passes."],image:"",srs:{},history:[],createdAt:1777908506629},
-  {id:"pre_351",word:"street food",meaning:"屋台グルメ",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["The street food here is amazing.","Don't miss the street food scene."],image:"",srs:{},history:[],createdAt:1777908566629},
+  {id:"pre_347",word:"upgrade",meaning:"上位グレードへの変更・格上げ",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I got a free upgrade to business class.","Ask nicely — you might get an upgrade."],image:"",srs:{},history:[],createdAt:1777908326629},
+  {id:"pre_348",word:"frequent flyer",meaning:"航空会社の頻繁利用者・上級会員",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I've been a frequent flyer for 10 years.","Frequent flyer miles got me a free trip."],image:"",srs:{},history:[],createdAt:1777908386629},
+  {id:"pre_349",word:"lounge access",meaning:"空港ラウンジへの入室権・利用資格",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["My card gives lounge access.","Lounge access makes long layovers better."],image:"",srs:{},history:[],createdAt:1777908446629},
+  {id:"pre_350",word:"culture shock",meaning:"異文化に触れた時の戸惑い・混乱",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Moving abroad gave me culture shock.","Culture shock is normal — it passes."],image:"",srs:{},history:[],createdAt:1777908506629},
+  {id:"pre_351",word:"street food",meaning:"屋台・路上で売られる料理",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["The street food here is amazing.","Don't miss the street food scene."],image:"",srs:{},history:[],createdAt:1777908566629},
   {id:"pre_352",word:"hole-in-the-wall",meaning:"小さくて目立たない名店",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["We found a hole-in-the-wall ramen place.","The best food is at hole-in-the-wall spots."],image:"",srs:{},history:[],createdAt:1777908626629},
-  {id:"pre_353",word:"word of mouth",meaning:"口コミ",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I found it through word of mouth.","Word of mouth recommendations are the best."],image:"",srs:{},history:[],createdAt:1777908686629},
+  {id:"pre_353",word:"word of mouth",meaning:"口コミ・人から人への評判",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I found it through word of mouth.","Word of mouth recommendations are the best."],image:"",srs:{},history:[],createdAt:1777908686629},
   {id:"pre_354",word:"underrated",meaning:"過小評価されてる",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["That city is totally underrated.","This restaurant is underrated."],image:"",srs:{},history:[],createdAt:1777908746629},
   {id:"pre_355",word:"overrated",meaning:"過大評価されてる",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["The main attraction was honestly overrated.","That famous dish is a bit overrated."],image:"",srs:{},history:[],createdAt:1777908806629},
   {id:"pre_356",word:"avoid the crowds",meaning:"混雑を避ける",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Go early to avoid the crowds.","Visit on weekdays to avoid the crowds."],image:"",srs:{},history:[],createdAt:1777908866629},
   {id:"pre_357",word:"travel on a shoestring",meaning:"超節約旅行をする",category:"旅行",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["We traveled through Asia on a shoestring.","You can travel Europe on a shoestring."],image:"",srs:{},history:[],createdAt:1777908926629},
   {id:"pre_358",word:"splurge",meaning:"奮発する",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["We splurged on a fancy hotel.","Sometimes it's worth splurging."],image:"",srs:{},history:[],createdAt:1777908986629},
-  {id:"pre_359",word:"complimentary",meaning:"無料の、サービスの",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Breakfast is complimentary.","We got a complimentary upgrade."],image:"",srs:{},history:[],createdAt:1777909046629},
-  {id:"pre_360",word:"concierge",meaning:"コンシェルジュ",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Ask the concierge for recommendations.","The concierge arranged everything."],image:"",srs:{},history:[],createdAt:1777909106629},
+  {id:"pre_359",word:"complimentary",meaning:"無料で提供される、サービスとして付く",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Breakfast is complimentary.","We got a complimentary upgrade."],image:"",srs:{},history:[],createdAt:1777909046629},
+  {id:"pre_360",word:"concierge",meaning:"ホテルの案内係・要望を何でも対応するスタッフ",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Ask the concierge for recommendations.","The concierge arranged everything."],image:"",srs:{},history:[],createdAt:1777909106629},
   {id:"pre_361",word:"hop on hop off",meaning:"乗り降り自由の観光バス",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["We did a hop on hop off tour.","Hop on hop off is great for first-timers."],image:"",srs:{},history:[],createdAt:1777909166629},
   {id:"pre_362",word:"packing light",meaning:"荷物を少なく持つ",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Packing light makes travel so much easier.","I'm learning the art of packing light."],image:"",srs:{},history:[],createdAt:1777909226629},
   {id:"pre_363",word:"travel essentials",meaning:"旅行必需品",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["What are your travel essentials?","Portable charger is a travel essential."],image:"",srs:{},history:[],createdAt:1777909286629},
@@ -373,13 +373,13 @@ const PRELOADED = [
   {id:"pre_369",word:"travel bug",meaning:"旅行熱",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["I caught the travel bug in college.","She's got the travel bug bad."],image:"",srs:{},history:[],createdAt:1777909646629},
   {id:"pre_370",word:"scenic route",meaning:"景色のいいルート",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["Let's take the scenic route.","The scenic route added an hour but was worth it."],image:"",srs:{},history:[],createdAt:1777909706629},
   {id:"pre_371",word:"souvenir",meaning:"お土産",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["I bought souvenirs for everyone.","What's a good souvenir from here?"],image:"",srs:{},history:[],createdAt:1777909766629},
-  {id:"pre_372",word:"exchange rate",meaning:"為替レート",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["What's the exchange rate today?","Check the exchange rate before you go."],image:"",srs:{},history:[],createdAt:1777909826629},
+  {id:"pre_372",word:"exchange rate",meaning:"通貨の両替比率・為替相場",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["What's the exchange rate today?","Check the exchange rate before you go."],image:"",srs:{},history:[],createdAt:1777909826629},
   {id:"pre_373",word:"round trip",meaning:"往復",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["I need a round trip ticket.","Round trip flights are usually cheaper."],image:"",srs:{},history:[],createdAt:1777909886629},
   {id:"pre_374",word:"one-way",meaning:"片道",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["Just a one-way — I'm not sure when I'll return.","One-way tickets can be flexible."],image:"",srs:{},history:[],createdAt:1777909946629},
   {id:"pre_375",word:"jet-setter",meaning:"頻繁に旅行する人",category:"旅行",level:3,phonetic:"",audioUS:"",audioUK:"",examples:["She's a total jet-setter.","Living like a jet-setter this month."],image:"",srs:{},history:[],createdAt:1777910006629},
   {id:"pre_376",word:"no-frills",meaning:"飾り気のない、最低限の",category:"旅行",level:2,phonetic:"",audioUS:"",audioUK:"",examples:["It's a no-frills hotel but comfortable.","I prefer no-frills travel."],image:"",srs:{},history:[],createdAt:1777910066629},
   {id:"pre_377",word:"passport control",meaning:"入国審査",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["Passport control took forever.","Have your documents ready at passport control."],image:"",srs:{},history:[],createdAt:1777910126629},
-  {id:"pre_378",word:"time zone",meaning:"タイムゾーン",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["What time zone are you in?","I keep forgetting the time zone difference."],image:"",srs:{},history:[],createdAt:1777910186629},
+  {id:"pre_378",word:"time zone",meaning:"時間帯・標準時の区域",category:"旅行",level:1,phonetic:"",audioUS:"",audioUK:"",examples:["What time zone are you in?","I keep forgetting the time zone difference."],image:"",srs:{},history:[],createdAt:1777910186629},
   // ===== 単語単体 (日常会話) =====
   {id:"pre_379",word:"apologize",meaning:"謝る、お詫びする",category:"日常会話",level:2,phonetic:"/əˈpɒlədʒaɪz/",audioUS:"",audioUK:"",examples:["I want to apologize for being late.","He apologized sincerely to his friend."],image:"",srs:{},history:[],createdAt:1777910246629},
   {id:"pre_380",word:"grateful",meaning:"感謝している",category:"日常会話",level:2,phonetic:"/ˈɡreɪtfəl/",audioUS:"",audioUK:"",examples:["I'm so grateful for your help.","She felt grateful for the opportunity."],image:"",srs:{},history:[],createdAt:1777910306629},
@@ -446,10 +446,10 @@ const PRELOADED = [
   {id:"pre_437",word:"customs",meaning:"税関、通関手続き",category:"旅行",level:2,phonetic:"/ˈkʌstəmz/",audioUS:"",audioUK:"",examples:["You have to declare items at customs.","The customs line was really long."],image:"",srs:{},history:[],createdAt:1777913726629},
   {id:"pre_438",word:"turbulence",meaning:"乱気流",category:"旅行",level:3,phonetic:"/ˈtɜːrbjuləns/",audioUS:"",audioUK:"",examples:["The flight hit some turbulence.","Fasten your seatbelt during turbulence."],image:"",srs:{},history:[],createdAt:1777913786629},
   {id:"pre_439",word:"layover",meaning:"乗り継ぎ待ち時間",category:"旅行",level:2,phonetic:"/ˈleɪoʊvər/",audioUS:"",audioUK:"",examples:["We have a 3-hour layover in Dubai.","I hate long layovers."],image:"",srs:{},history:[],createdAt:1777913846629},
-  {id:"pre_440",word:"complimentary",meaning:"無料の、サービスの",category:"旅行",level:3,phonetic:"/ˌkɒmplɪˈmentəri/",audioUS:"",audioUK:"",examples:["Breakfast is complimentary.","The hotel offers complimentary Wi-Fi."],image:"",srs:{},history:[],createdAt:1777913906629},
+  {id:"pre_440",word:"complimentary",meaning:"無料で提供される、サービスとして付く",category:"旅行",level:3,phonetic:"/ˌkɒmplɪˈmentəri/",audioUS:"",audioUK:"",examples:["Breakfast is complimentary.","The hotel offers complimentary Wi-Fi."],image:"",srs:{},history:[],createdAt:1777913906629},
   {id:"pre_441",word:"sightseeing",meaning:"観光",category:"旅行",level:1,phonetic:"/ˈsaɪtsiːɪŋ/",audioUS:"",audioUK:"",examples:["We spent the day sightseeing.","The sightseeing tour was amazing."],image:"",srs:{},history:[],createdAt:1777913966629},
   {id:"pre_442",word:"affordable",meaning:"手頃な値段の、リーズナブルな",category:"旅行",level:2,phonetic:"/əˈfɔːrdəbl/",audioUS:"",audioUK:"",examples:["The hotel was surprisingly affordable.","We're looking for affordable options."],image:"",srs:{},history:[],createdAt:1777914026629},
-  {id:"pre_443",word:"backpacker",meaning:"バックパッカー、格安旅行者",category:"旅行",level:2,phonetic:"/ˈbækpækər/",audioUS:"",audioUK:"",examples:["The hostel was full of backpackers.","She traveled as a backpacker for a year."],image:"",srs:{},history:[],createdAt:1777914086629}
+  {id:"pre_443",word:"backpacker",meaning:"荷物を最小限にした格安旅行者",category:"旅行",level:2,phonetic:"/ˈbækpækər/",audioUS:"",audioUK:"",examples:["The hostel was full of backpackers.","She traveled as a backpacker for a year."],image:"",srs:{},history:[],createdAt:1777914086629}
 ];
 // ===== STORAGE =====
 const S = {
@@ -880,27 +880,28 @@ function StudyView({ words, due, onComplete, onBack }) {
   const generateExplanation=async(w)=>{
     setLoadingExp(true);
     const exList=w.examples?.filter(e=>e)||[];
-    const exText=exList.map((e,i)=>`${i+1}. ${e}`).join('\n');
+    const exLines=exList.map((e,i)=>`${i+1}. ${e}`).join('\n');
+    const exTemplate=JSON.stringify(exList.map(()=>'ここに日本語訳'));
     try{
+      const prompt=`英語「${w.word}」（意味：${w.meaning}）について日本語でJSONのみ返してください。コードブロック不要。
+
+{"etymology":"語源・由来（2〜3文）","image":"記憶に残る連想法（絵が浮かぶ具体的な解説）","usage":"使い方・ニュアンス（1〜2文）","examples_ja":${exTemplate}}
+
+examples_jaには以下の例文の自然な日本語訳を入れてください:
+${exLines}`;
       const res=await fetch('/api/claude',{
         method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({
-          model:'claude-sonnet-4-20250514',
-          max_tokens:900,
-          messages:[{role:'user',content:`英語の「${w.word}」について、日本語で以下をJSON形式のみで返してください（コードブロック・説明不要）:\n{"etymology":"語源や由来（なぜこの単語/表現が生まれたか、2〜3文）","image":"頭の中でイメージしやすい記憶術や連想法（具体的な絵や場面が浮かぶ解説）","usage":"よく使われる場面やニュアンスの補足（1〜2文）","examples_ja":${JSON.stringify(exList.map(()=>'（日本語訳）'))}}
-
-以下の例文を自然な日本語に翻訳してexamples_jaに入れてください：
-${exText}`}]
-        })
+        body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:800,messages:[{role:'user',content:prompt}]})
       });
       const data=await res.json();
+      if(data.error)throw new Error(data.error.message||JSON.stringify(data.error));
       const text=data.content?.find(b=>b.type==='text')?.text||'';
       const match=text.match(/\{[\s\S]*\}/);
-      if(!match)throw new Error('JSON not found in: '+text.slice(0,100));
+      if(!match)throw new Error('no JSON: '+text.slice(0,80));
       setExplanation(JSON.parse(match[0]));
     }catch(e){
-      console.error('explanation error:',e);
-      setExplanation({etymology:'解説の取得に失敗しました。',image:'',usage:'',examples_ja:[]});
+      console.error('explanation:',e.message);
+      setExplanation({etymology:`取得失敗: ${e.message.slice(0,60)}`,image:'',usage:'',examples_ja:[]});
     }
     setLoadingExp(false);
   };
