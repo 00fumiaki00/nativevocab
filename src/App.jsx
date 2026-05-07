@@ -521,9 +521,15 @@ function HomeView({ words, streak, due, onStudy, onAdd }) {
   const mastered = words.filter(w=>(w.srs?.n||0)>=5).length;
   return (
     <div style={{ padding:'28px 20px' }}>
-      <div style={{ marginBottom:'28px' }}>
-        <div style={{ fontFamily:'Inter',fontSize:'30px',fontWeight:800,background:'linear-gradient(135deg,#4F8EF7,#00D9FF)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',letterSpacing:'-0.5px' }}>NativeVocab</div>
-        <div style={{ color:C.muted,fontSize:'13px',marginTop:'2px' }}>ネイティブ英語マスター</div>
+      <div style={{ marginBottom:'28px',display:'flex',alignItems:'flex-start',justifyContent:'space-between' }}>
+        <div>
+          <div style={{ fontFamily:'Inter',fontSize:'30px',fontWeight:800,background:'linear-gradient(135deg,#4F8EF7,#00D9FF)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',letterSpacing:'-0.5px' }}>NativeVocab</div>
+          <div style={{ color:C.muted,fontSize:'13px',marginTop:'2px' }}>ネイティブ英語マスター</div>
+        </div>
+        <button onClick={async()=>{
+          if('caches' in window){const keys=await caches.keys();await Promise.all(keys.map(k=>caches.delete(k)));}
+          window.location.reload();
+        }} title="最新版に更新" style={{ background:C.card,border:`1px solid ${C.border}`,borderRadius:'10px',padding:'8px 10px',color:C.muted,cursor:'pointer',fontSize:'16px',marginTop:'4px' }}>🔄</button>
       </div>
       <div style={{ background:'linear-gradient(135deg,#1A0F3A88,#0D1424)',border:`1px solid ${C.dim}`,borderRadius:'22px',padding:'24px',marginBottom:'14px',display:'flex',alignItems:'center',gap:'16px',position:'relative',overflow:'hidden' }}>
         <div style={{ position:'absolute',right:'-10px',top:'-10px',fontSize:'80px',opacity:0.08 }}>🔥</div>
