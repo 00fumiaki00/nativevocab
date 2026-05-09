@@ -1233,6 +1233,14 @@ export default function App() {
       if (!w) {
         w = PRELOADED.map((p, i) => ({ id: `pre_${i}`, ...p, audioUS:'', audioUK:'', image:'', srs:{}, history:[], createdAt: Date.now() - (PRELOADED.length - i) * 60000 }));
         await S.set('nv-words-v4', w);
+      } else {
+        // Merge any new PRELOADED words not yet in localStorage
+        const existingIds = new Set(w.map(x => x.id));
+        const added = PRELOADED.filter(p => !existingIds.has(p.id));
+        if (added.length > 0) {
+          w = [...w, ...added];
+          await S.set('nv-words-v4', w);
+        }
       }
       setWords(w);
       setStreak(s || { count:0, lastDate:null });
